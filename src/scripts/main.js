@@ -1,4 +1,8 @@
-import newsHTMLFactory from "./newsFeed/newsHTMLFactory"
-import newsPrintToDom from "./newsFeed/newsPrintToDom";
+// import eventsApiManager from "./events/eventsApiManager";
 
-newsHTMLFactory()
+import printToDOM from "./welcome/printToDOM";
+import welcomeForms from "./welcome/welcomeForms";
+
+printToDOM(welcomeForms.loginForm, "#welcomeForm")
+
+// eventsApiManager(r => console.log(r))
