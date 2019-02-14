@@ -1,160 +1,63 @@
 {
+  "users": [
+    {
+      "id": 1,
+      "first_name": "Brian",
+      "last_name": "Neal",
+      "username": "bubbabrine",
+      "email": "brianbneal@gmail.com",
+      "password": "pa$$word"
+    },
+    {
+      "id": 2,
+      "first_name": "James",
+      "last_name": "Farrell",
+      "username": "farrellkat",
+      "email": "jamesfarrellmusic@gmail.com",
+      "password": "admin"
+    }
+  ],
+  "articles": [
+    {
+      "id": 1,
+      "userId": 1,
+      "title": "Cats Cats Cats!!!",
+      "summary": "Cats may fantasize about killing us",
+      "url": "https://news.nationalgeographic.com/news/2014/01/140127-cats-pets-animals-nation-dogs-people-science/",
+      "timestamp": 178024
+    }
+  ],
+  "tasks": [
+    {
+      "id": 1,
+      "userId": 2,
+      "task_name": "Give cat a bath",
+      "expected_completion": "2019/02/14",
+      "completed": false
+    }
+  ],
+  "events": [
+    {
+      "id": 1,
+      "userId": 2,
+      "name": "cat briss",
+      "date": "2019/02/15",
+      "location": "James' house"
+    }
+  ],
   "messages": [
     {
       "id": 1,
       "userId": 1,
-      "time": 1256787654,
-      "text": "I like NSS"
-    },
+      "content": "James does weird things with his cat",
+      "timestamp": 102875
+    }
+  ],
+  "friends": [
     {
+      "id": 1,
       "userId": 1,
-      "content": "asd",
-      "messageDate": 1550111918114,
-      "id": 2
-    },
-    {
-      "userId": 1,
-      "content": "asd",
-      "messageDate": 1550112018696,
-      "id": 3
-    },
-    {
-      "userId": 1,
-      "content": "234",
-      "messageDate": 1550112165685,
-      "id": 4
-    },
-    {
-      "userId": 1,
-      "content": "234",
-      "messageDate": 1550112300569,
-      "id": 5
-    },
-    {
-      "userId": 1,
-      "content": "asd",
-      "messageDate": 1550112390832,
-      "id": 6
-    },
-    {
-      "userId": 1,
-      "content": "asd",
-      "messageDate": 1550112444238,
-      "id": 7
-    },
-    {
-      "userId": 1,
-      "content": "asd",
-      "messageDate": 1550112571368,
-      "id": 8
-    },
-    {
-      "userId": 1,
-      "content": "asd",
-      "messageDate": 1550112619509,
-      "id": 9
-    },
-    {
-      "userId": 1,
-      "content": "ert",
-      "messageDate": 1550112702688,
-      "id": 10
-    },
-    {
-      "userId": 1,
-      "content": "ert",
-      "messageDate": 1550112743746,
-      "id": 11
-    },
-    {
-      "userId": 1,
-      "content": "asd",
-      "messageDate": 1550112814753,
-      "id": 12
-    },
-    {
-      "userId": 1,
-      "content": "asd",
-      "messageDate": 1550112874069,
-      "id": 13
-    },
-    {
-      "userId": 1,
-      "content": "asd",
-      "messageDate": 1550113019523,
-      "id": 14
-    },
-    {
-      "userId": 1,
-      "content": "asd",
-      "messageDate": 1550113601461,
-      "id": 15
-    },
-    {
-      "userId": 1,
-      "content": "sdf",
-      "messageDate": 1550113686042,
-      "id": 16
-    },
-    {
-      "userId": 1,
-      "content": "asd",
-      "messageDate": 1550156735839,
-      "id": 17
-    },
-    {
-      "userId": 1,
-      "content": "asd",
-      "messageDate": 1550157149436,
-      "id": 18
-    },
-    {
-      "userId": 1,
-      "content": "asd",
-      "messageDate": 1550157915660,
-      "id": 19
-    },
-    {
-      "userId": 1,
-      "content": "sdf",
-      "messageDate": 1550157935660,
-      "id": 20
-    },
-    {
-      "userId": 1,
-      "content": "sdf",
-      "messageDate": 1550158002051,
-      "id": 21
-    },
-    {
-      "userId": 1,
-      "content": "asd",
-      "messageDate": 1550158553492,
-      "id": 22
-    },
-    {
-      "userId": 1,
-      "content": "asd",
-      "messageDate": 1550158807993,
-      "id": 23
-    },
-    {
-      "userId": 1,
-      "content": "asd",
-      "messageDate": 1550158863587,
-      "id": 24
-    },
-    {
-      "userId": 1,
-      "content": "asd",
-      "messageDate": 1550159062383,
-      "id": 25
-    },
-    {
-      "userId": 1,
-      "content": "asd",
-      "messageDate": 1550159288608,
-      "id": 26
+      "friendId": 2
     }
   ]
 }
