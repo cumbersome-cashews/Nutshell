@@ -50,7 +50,13 @@
       "id": 1,
       "userId": 1,
       "content": "James does weird things with his cat",
-      "timestamp": 102875
+      "messageDate": "2/14/2019, 10:08:41 AM"
+    },
+    {
+      "userId": 1,
+      "content": "asd",
+      "messageDate": "2/14/2019, 10:42:41 AM",
+      "id": 2
     }
   ],
   "friends": [
