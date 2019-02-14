@@ -31,6 +31,14 @@
       "email": "b",
       "password": "b",
       "id": 4
+    },
+    {
+      "first_name": "buttface",
+      "last_name": "buttface",
+      "username": "buttface",
+      "email": "buttface",
+      "password": "buttface",
+      "id": 5
     }
   ],
   "articles": [

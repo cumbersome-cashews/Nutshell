@@ -13,11 +13,11 @@ const welcome = {
             .then(usersData => {
                 console.log(usersData)
                 const allUserNames = usersData.map(user => {
-                    return user.username
+                    return user.username.toLowerCase()
                 })
                 console.log(allUserNames)
                 const allEmails = usersData.map(user => {
-                    return user.email
+                    return user.email.toLowerCase()
                 })
                 //capture input values
                 const newUserObject = {
@@ -30,12 +30,16 @@ const welcome = {
 
                 console.log(allEmails)
                 //compare to make sure email and username are unique
-                if (allUserNames.includes(newUserObject.username)) {
+                if (allUserNames.includes(newUserObject.username.toLowerCase())) {
                     window.alert("This username already exists.")
+                    document.querySelector("#registration_username").focus()
+                    document.querySelector("#registration_username").select()
 
-                //alert if not unique
-                } else if (allEmails.includes(newUserObject.email)) {
+                    //alert if not unique
+                } else if (allEmails.includes(newUserObject.email.toLowerCase())) {
                     window.alert("There is already an account associated with this email adress.")
+                    document.querySelector("#registration_email").focus()
+                    document.querySelector("#registration_email").select()
 
                 //POST new user object if unique
                 } else {
