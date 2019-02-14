@@ -1,6 +1,7 @@
 import APIfunctions from "./api"
 import taskListeners from "./taskListeners"
-let taskToDOM = () => {
+let taskToDOM = (html) => {
+  document.getElementById("taskList").innerHTML += html
   APIfunctions.getTasks()
     .then(parsedTasks => {
       parsedTasks.forEach(task => {
@@ -13,6 +14,7 @@ let taskToDOM = () => {
         </div>`
       });
       taskListeners.completedTask()
+      taskListeners.addTask()
     })
 }
 export default taskToDOM

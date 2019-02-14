@@ -1,22 +1,10 @@
 let taskForm = {
-  taskFormInput: () => {
- let masterDiv = document.getElementById("masterDiv")
-
-let taskForm = document.createElement("form")
-taskForm.setAttribute("onsubmit", "return false")
-
-let taskInput = document.createElement("input")
-taskInput.setAttribute("type", "text")
-taskInput.setAttribute("name", "task_name")
-
-let taskName = document.createElement("label")
-taskName.setAttribute("for","task_name")
-taskName.textContent = "Task Name"
-
-taskForm.appendChild(taskName)
-taskForm.appendChild(taskInput)
-
-masterDiv.appendChild(taskForm)
-}}
+ taskFormInput:`
+  <h3>Create a Task</h3>
+  <input type="text" id="task_name" placeholder="Task Name">
+  <input type="Date" id="completion_date">
+  <button id="addTaskButton">Add Task</button>
+ `
+}
 
 export default taskForm
