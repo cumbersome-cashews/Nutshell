@@ -1,63 +1,79 @@
 {
-    "users": [
-        {
-            "id": 1,
-            "first_name": "Brian",
-            "last_name": "Neal",
-            "username": "bubbabrine",
-            "email": "brianbneal@gmail.com",
-            "password": "pa$$word"
-        },
-        {
-            "id": 2,
-            "first_name": "James",
-            "last_name": "Farrell",
-            "username": "farrellkat",
-            "email": "jamesfarrellmusic@gmail.com",
-            "password": "admin"
-        }
-    ],
-    "articles": [
-        {
-            "id": 1,
-            "userId": 1,
-            "title": "Cats Cats Cats!!!",
-            "summary": "Cats may fantasize about killing us",
-            "url": "https://news.nationalgeographic.com/news/2014/01/140127-cats-pets-animals-nation-dogs-people-science/",
-            "timestamp": 178024
-        }
-    ],
-    "tasks": [
-        {
-            "id": 1,
-            "userId": 2,
-            "task_name": "Give cat a bath",
-            "expected_completion": "2019/02/14",
-            "completed": false
-        }
-    ],
-    "events": [
-        {
-            "id": 1,
-            "userId": 2,
-            "name": "cat briss",
-            "date": "2019/02/15",
-            "location": "James' house"
-        }
-    ],
-    "messages": [
-        {
-            "id": 1,
-            "userId": 1,
-            "content": "James does weird things with his cat",
-            "timestamp": 102875
-        }
-    ],
-    "friends": [
-        {
-            "id": 1,
-            "userId": 1,
-            "friendId": 2
-        }
-    ]
+  "users": [
+    {
+      "id": 1,
+      "first_name": "Brian",
+      "last_name": "Neal",
+      "username": "bubbabrine",
+      "email": "brianbneal@gmail.com",
+      "password": "pa$$word"
+    },
+    {
+      "id": 2,
+      "first_name": "James",
+      "last_name": "Farrell",
+      "username": "farrellkat",
+      "email": "jamesfarrellmusic@gmail.com",
+      "password": "admin"
+    },
+    {
+      "first_name": "po",
+      "last_name": "po",
+      "username": "po",
+      "email": "po",
+      "password": "po",
+      "id": 3
+    },
+    {
+      "first_name": "Buttface",
+      "last_name": "b",
+      "username": "b",
+      "email": "b",
+      "password": "b",
+      "id": 4
+    }
+  ],
+  "articles": [
+    {
+      "id": 1,
+      "userId": 1,
+      "title": "Cats Cats Cats!!!",
+      "summary": "Cats may fantasize about killing us",
+      "url": "https://news.nationalgeographic.com/news/2014/01/140127-cats-pets-animals-nation-dogs-people-science/",
+      "timestamp": 178024
+    }
+  ],
+  "tasks": [
+    {
+      "id": 1,
+      "userId": 2,
+      "task_name": "Give cat a bath",
+      "expected_completion": "2019/02/14",
+      "completed": false
+    }
+  ],
+  "events": [
+    {
+      "id": 1,
+      "userId": 2,
+      "name": "cat briss",
+      "date": "2019/02/15",
+      "location": "James' house"
+    }
+  ],
+  "messages": [
+    {
+      "id": 1,
+      "userId": 1,
+      "content": "James does weird things with his cat",
+      "timestamp": 102875
+    }
+  ],
+  "friends": [
+    {
+      "id": 1,
+      "userId": 1,
+      "friendId": 2
+    }
+  ]
 }
