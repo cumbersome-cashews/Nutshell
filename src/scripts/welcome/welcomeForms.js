@@ -2,31 +2,30 @@ const welcomeForms = {
     registrationForm: `
         <h1>Welcome! Create an account.</h1>
 
-        <label for="registration_username">Username</label>
-        <input type="text" name="registration_username" id="registration_username">
+        <input type="text" name="registration_username" id="registration_username" placeholder="Username">
 
-        <label for="registration_password">Password</label>
-        <input type="password" name="registration_password" id="registration_password">
+        <input type="password" name="registration_password" id="registration_password" placeholder="Password">
 
-        <label for="registration_firstName">First Name</label>
-        <input type="text" name="registration_firstName" id="registration_firstName">
+        <input type="text" name="registration_firstName" id="registration_firstName" placeholder="First Name">
 
-        <label for="registration_lastName">Last Name</label>
-        <input type="text" name="registration_lastName" id="registration_lastName">
+        <input type="text" name="registration_lastName" id="registration_lastName" placeholder="Last Name">
 
-        <label for="registration_email">Email</label>
-        <input type="text" name="registration_email" id="registration_email">
+        <input type="text" name="registration_email" id="registration_email" placeholder="Email">
 
         <button id="registerBtn">Register</button>
-        <button id="alreadyRegistered">Already Have An Account?</button>
+        <a id="alreadyRegistered" href="#">Already Have An Account?</a>
+
     `,
     loginForm: `
         <h1>Login</h1>
 
         <label for="login_username">Username</label>
         <input type="text" name="login_username" id="login_username">
-        <label for="login_password">Username</label>
+        <label for="login_password">Password</label>
         <input type="text" name="login_password" id="login_password">
+
+        <button id="loginBtn">Login</button>
+        <a id="needToRegister" href="#">Don't Have An Account?</a>
     `
 }
 

@@ -1,8 +1,12 @@
 // import eventsApiManager from "./events/eventsApiManager";
 
-import printToDOM from "./welcome/printToDOM";
+import welcome from "./welcome/welcome";
 import welcomeForms from "./welcome/welcomeForms";
+import welcomeEventHandlers from "./welcome/welcomeEventHandler"
 
-printToDOM(welcomeForms.loginForm, "#welcomeForm")
+welcome.welcome(welcomeForms.loginForm)
+welcomeEventHandlers.needToRegister()
+welcomeEventHandlers.alreadyRegistered()
+
 
 // eventsApiManager(r => console.log(r))
