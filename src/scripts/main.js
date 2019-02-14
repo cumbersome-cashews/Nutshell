@@ -1,3 +1,8 @@
-import eventsApiManager from "./events/eventsApiManager";
+// import eventsApiManager from "./events/eventsApiManager";
 
-eventsApiManager(r => console.log(r))
+import printToDOM from "./welcome/printToDOM";
+import welcomeForms from "./welcome/welcomeForms";
+
+printToDOM(welcomeForms.loginForm, "#welcomeForm")
+
+// eventsApiManager(r => console.log(r))
