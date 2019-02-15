@@ -17,33 +17,8 @@
       "password": "admin"
     }
   ],
-  "articles": [
-    {
-      "userId": 1,
-      "title": "Cat Dog Dog!!!",
-      "summary": "I Love Cats!!!!",
-      "url": "https://www.catsthemusical.com/",
-      "timestamp": 1550239425302,
-      "id": 1
-    },
-    {
-      "userId": 1,
-      "title": "Cats Cats Cats!!",
-      "summary": "!Hey",
-      "url": "there",
-      "timestamp": 1550238708012,
-      "id": 3
-    }
-  ],
-  "tasks": [
-    {
-      "id": 1,
-      "userId": 2,
-      "task_name": "Give cat a bath",
-      "expected_completion": "2019/02/14",
-      "completed": false
-    }
-  ],
+  "articles": [],
+  "tasks": [],
   "events": [
     {
       "id": 1,

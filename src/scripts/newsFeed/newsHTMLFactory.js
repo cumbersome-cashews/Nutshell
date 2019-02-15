@@ -6,25 +6,25 @@ import newsEventListener from "./newsEventListenerHandler"
 const $ = document.querySelector.bind(document)
 const articleContainer = $("#newsFeed-article-container")
 
-const newsHTMLFactory = () => apiHandler.getNews().then((parsedNews) => {
-    //create and print "post new article" button
+//create and print "post new article" button
+const newsHTMLFactory = () => {
 
     newsPrintToDom.printInputField(newsForms.postNewArticleHTML, "#newsFeed-input-container")
-    newsEventListener.newsInputButton()
-    newsEventListener.postArticleButton()
-    newsEventListener.removeArticleButton()
 
     //clear the DOM before adding articles
     articleContainer.innerHTML = ""
 
-    //loop through array of articles and make html
-    parsedNews.forEach(news => {
-        const moment = require('moment');
-        const dateTimeString = moment(news.timestamp).format("MM-DD-YYYY hh:mm:ss");
-        let newsLinkShortener = news.url.split("/")[2]
+    apiHandler.getNews().then((parsedNews) => {
 
-        //build article html
-        const newsHTML = `
+        const revParsedNews = parsedNews.reverse()
+        //loop through array of articles and make html
+        revParsedNews.forEach(news => {
+            const moment = require('moment');
+            const dateTimeString = moment(news.timestamp).format("MM-DD-YYYY hh:mm:ss");
+            let newsLinkShortener = news.url.split("/")[2]
+
+            //build article html
+            const newsHTML = `
         <section class="articleContainer">
             <input type="hidden" id="${news.id}">
             <h1 class="eventHeader">${news.title}</h1>
@@ -38,10 +38,10 @@ const newsHTMLFactory = () => apiHandler.getNews().then((parsedNews) => {
             </div>
         </section>
 `
-        //print saved articles to DOM
-        newsPrintToDom.printArticles(newsHTML, "#newsFeed-article-container")
-        newsEventListener.editArticleButton()
+            //print saved articles to DOM
+            newsPrintToDom.printArticles(newsHTML, "#newsFeed-article-container")
+        })
     })
-})
+}
 
 export default newsHTMLFactory

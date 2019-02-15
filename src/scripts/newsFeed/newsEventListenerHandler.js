@@ -10,7 +10,6 @@ const newsEventListener = {
         $("#newsFeed-input-container").addEventListener("click", (e) => {
             if (e.target.id === "createInputButton") {
                 newsPrintToDom.printInputField(newsForms.newsInputForm, "#newsFeed-input-container")
-                this.cancelPostButton()
             }
         })
     },
@@ -28,13 +27,13 @@ const newsEventListener = {
                     "url": url,
                     "timestamp": Date.now()
                 }
+
                 apiHandler.postNews(newsObject)
                     .then(() => {
                         $("#newsFeed-article-container").innerHTML = ""
                         newsHTMLFactory()
                     })
-            } else {
-                if (e.target.id === "postArticleButton" && $("#hiddenInput").value !== "") {
+            } else if (e.target.id === "postArticleButton" && $("#hiddenInput").value !== "") {
                     const title = $("#newsTitleInput").value
                     const summary = $("#newsSynopsisInput").value
                     const url = $("#newsURLInput").value
@@ -52,10 +51,11 @@ const newsEventListener = {
                             $("#newsFeed-article-container").innerHTML = ""
                             newsHTMLFactory()
                         })
+                } else if (e.target.id === "cancelPost") {
+                    newsPrintToDom.printInputField(newsForms.postNewArticleHTML, "#newsFeed-input-container")
                 }
-            }
-        })
-    },
+            })
+        },
     editArticleButton() {
         $("#newsFeed-article-container").addEventListener("click", (e) => {
             const buttonId = e.target.id
@@ -69,27 +69,16 @@ const newsEventListener = {
                         $("#newsTitleInput").value = article.title
                         $("#newsSynopsisInput").value = article.summary
                         $("#newsURLInput").value = article.url
-                    })
-            }
-        })
-    },
-    removeArticleButton() {
-        $("#newsFeed-article-container").addEventListener("click", (e) => {
-            const buttonId = e.target.id
-            if (buttonId.includes("removeArticle--")) {
-                const articleId = buttonId.split("--")[1]
-                apiHandler.deleteNews(articleId)
-                    .then(() => {
-                        $("#newsFeed-article-container").innerHTML = ""
                         newsHTMLFactory()
                     })
-            }
-
-        })
-    },
-    cancelPostButton() {
-        $("#cancelPost").addEventListener("click", () => {
-            newsPrintToDom.printInputField(newsForms.postNewArticleHTML, "#newsFeed-input-container")
+            } else if (buttonId.includes("removeArticle--")) {
+                    const articleId = buttonId.split("--")[1]
+                    apiHandler.deleteNews(articleId)
+                        .then(() => {
+                            $("#newsFeed-article-container").innerHTML = ""
+                            newsHTMLFactory()
+                        })
+                }
         })
     }
 }
