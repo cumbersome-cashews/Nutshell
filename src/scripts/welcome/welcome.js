@@ -28,7 +28,6 @@ const welcome = {
                     password: document.querySelector("#registration_password").value
                 }
 
-                console.log(allEmails)
                 //compare to make sure email and username are unique
                 if (allUserNames.includes(newUserObject.username.toLowerCase())) {
                     window.alert("This username already exists.")
@@ -45,6 +44,9 @@ const welcome = {
                 } else {
                     alert(`All hail Lord ${newUserObject.first_name}!!!`)
                     welcomeApiManager.postUsers(newUserObject)
+                        .then(user => {
+                            sessionStorage.setItem("activeUser", user.id)
+                            welcome.showDashboard(user.id)})
 
                     //pass new user object into login function
                     // .then(user => login(user))
