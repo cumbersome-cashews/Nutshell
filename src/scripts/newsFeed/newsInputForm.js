@@ -7,9 +7,12 @@ const newsForms = {
     <section id="newsInputContainer">
         <input type="hidden" id=hiddenInput value="">
         <input type="text" id="newsTitleInput" placeholder="Title">
-        <textarea id="newsSynopsisInput" placeholder="Write article summary here"></textarea>
+        <textarea id="newsSynopsisInput" placeholder="Summary"></textarea>
         <input type="url" id="newsURLInput" placeholder="URL">
-        <button id="postArticleButton">Post</button>
+        <div class="postButtonContainer">
+            <button id="postArticleButton" class="postButton">Post</button>
+            <button id="cancelPost" class="postButton">Cancel</button>
+        </div>
     </section>
 `
 }

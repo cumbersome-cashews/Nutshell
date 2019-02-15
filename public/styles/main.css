@@ -1,0 +1,68 @@
+#display-container,
+#newsFeed-input-container,
+#newsFeed-article-container,
+#newsInputContainer {
+    display: flex;
+    flex-direction: column;
+    padding: 5px;
+}
+
+#newsFeed-input-container {
+    width: 40%;
+    min-width: 175px;
+    width: 337px;
+    margin: 5px 0px 5px 0px;
+    border-radius: 10px;
+    box-shadow: 1px 1px 5px #aaaaaa;
+}
+
+.card-button-container {
+    display: flex;
+    justify-content: space-between;
+    margin: 10px 0px 0px 0px;
+}
+
+.newsCardButton {
+    border-radius: 5px;
+}
+
+.newsCardButton:hover {
+    background-color: beige;
+    box-shadow: 1px 1px 1px grey;
+    cursor: pointer;
+}
+
+.postButtonContainer {
+    display: flex;
+}
+
+#newsSynopsisInput {
+    height: 100px;
+}
+
+#newsTitleInput,
+#newsSynopsisInput,
+#newsURLInput {
+    margin: 5px 0px;
+}
+
+.articleContainer {
+    padding: 10px;
+    margin: 5px 0px 5px 0px;
+    border-radius: 10px;
+    box-shadow: 5px 5px 5px #aaaaaa;
+}
+
+#newsFeed-article-container {
+    width: 50%;
+}
+
+#createInputButton,
+#postArticleButton {
+    border-radius: 5px;
+}
+
+.postButton {
+    border-radius: 5px;
+    margin: 5px;
+}
