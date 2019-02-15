@@ -1,9 +1,21 @@
 import APIfunctions from "./api";
+import taskToDOM from "./taskToDOM";
 
 let taskListeners = {
  completedTask: () => {
-   document.getElementById("completedButton").addEventListener("click", () => {
-  console.log("You clicked completed task")
+   const completedButton = document.getElementById("taskList")
+  completedButton.addEventListener("click", (e) => {
+  if (e.target.id.startsWith("completedButton")) {
+    console.log("You clicked completed task")
+    const idToGetOneTask = e.target.id.split("--")[1]
+    //get the id of what was clicked
+    //figure out which card has the same id and remove it
+    APIfunctions.getSingleTask(idToGetOneTask)
+    .then(taskObject => {
+      taskObject.completed = true
+      APIfunctions.editTask(taskObject.id, taskObject)
+    })
+  }
  })
 },
 
@@ -19,7 +31,7 @@ addTask: () => {
       name: document.getElementById("task_name").value,
       description: document.getElementById("task_description").value,
       when: document.getElementById("completion_date").value,
-      completed: Date.now()
+      completed: false
     }
     console.log(saveTask)
     APIfunctions.saveTaskInput(saveTask)
