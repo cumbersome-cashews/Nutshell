@@ -39,6 +39,14 @@
       "email": "buttface",
       "password": "buttface",
       "id": 5
+    },
+    {
+      "first_name": "Farquad",
+      "last_name": "Farquad",
+      "username": "Farquad",
+      "email": "Farquad",
+      "password": "Farquad",
+      "id": 6
     }
   ],
   "articles": [

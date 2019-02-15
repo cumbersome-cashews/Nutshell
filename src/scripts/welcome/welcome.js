@@ -41,7 +41,7 @@ const welcome = {
                     document.querySelector("#registration_email").focus()
                     document.querySelector("#registration_email").select()
 
-                //POST new user object if unique
+                    //POST new user object if unique
                 } else {
                     alert(`All hail Lord ${newUserObject.first_name}!!!`)
                     welcomeApiManager.postUsers(newUserObject)
@@ -58,23 +58,31 @@ const welcome = {
         welcomeApiManager.getUsers()
             .then(userData => {
                 //capture values from inputs
-                const loginUsername = document.querySelector("#login_username")
-                const loginPassword = document.querySelector("#login_password")
+                const loginUsername = document.querySelector("#login_username").value
+                const loginPassword = document.querySelector("#login_password").value
 
                 //compare id and password
-                userData.forEach(user => {
-                    if (user.username === loginUsername && user.password === loginPassword) {
-
-                    } else {
-                        alert("Username or password incorrect")
-                        welcome.welcome(welcomeForms.loginForm)
-                    }
-                });
-
-
+                const userToCheck = userData.find(user => user.username === loginUsername)
+                if (userToCheck === undefined) {
+                    alert("Username or password incorrect")
+                    welcome.welcome(welcomeForms.loginForm)
+                } else if (userToCheck.password === loginPassword) {
+                    sessionStorage.setItem("activeUser", userToCheck.id)
+                    welcome.showDashboard(userToCheck.id)
+                } else {
+                    alert("Username or password incorrect")
+                    welcome.welcome(welcomeForms.loginForm)
+                }
             })
         //if verified, capture userId in sessionStorage
         //go to dashboard
+    },
+    showDashboard: (activeUserId) => {
+        document.querySelector("#welcomeForm").innerHTML = ""
+        fetch(`http://localhost:8088/users/${activeUserId}`)
+            .then(r => r.json())
+            .then(data => console.log(data))
+        //activate each components "show on DOM" function
     }
 }
 

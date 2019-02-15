@@ -22,7 +22,7 @@ const welcomeForms = {
         <label for="login_username">Username</label>
         <input type="text" name="login_username" id="login_username">
         <label for="login_password">Password</label>
-        <input type="text" name="login_password" id="login_password">
+        <input type="password" name="login_password" id="login_password">
 
         <button id="loginBtn">Login</button>
         <a id="needToRegister" href="#">Don't Have An Account?</a>
