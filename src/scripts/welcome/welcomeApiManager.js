@@ -11,6 +11,7 @@ const welcomeApiManager = {
             },
             body: JSON.stringify(newUserObject)
         })
+        .then(res => res.json())
     }
 }
 

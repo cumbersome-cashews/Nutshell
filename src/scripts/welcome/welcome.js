@@ -11,11 +11,9 @@ const welcome = {
         //GET existing users
         welcomeApiManager.getUsers()
             .then(usersData => {
-                console.log(usersData)
                 const allUserNames = usersData.map(user => {
                     return user.username.toLowerCase()
                 })
-                console.log(allUserNames)
                 const allEmails = usersData.map(user => {
                     return user.email.toLowerCase()
                 })
@@ -28,23 +26,24 @@ const welcome = {
                     password: document.querySelector("#registration_password").value
                 }
 
-                //compare to make sure email and username are unique
+                // check if username is unique, alert if not unique
                 if (allUserNames.includes(newUserObject.username.toLowerCase())) {
                     window.alert("This username already exists.")
                     document.querySelector("#registration_username").focus()
                     document.querySelector("#registration_username").select()
 
-                    //alert if not unique
+                // check if email is unique, alert if not unique
                 } else if (allEmails.includes(newUserObject.email.toLowerCase())) {
                     window.alert("There is already an account associated with this email adress.")
                     document.querySelector("#registration_email").focus()
                     document.querySelector("#registration_email").select()
 
-                    //POST new user object if unique
+                //POST new user object if unique
                 } else {
                     alert(`All hail Lord ${newUserObject.first_name}!!!`)
                     welcomeApiManager.postUsers(newUserObject)
                         .then(user => {
+                            console.log("posted!", user)
                             sessionStorage.setItem("activeUser", user.id)
                             welcome.showDashboard(user.id)})
 
@@ -80,6 +79,7 @@ const welcome = {
         //go to dashboard
     },
     showDashboard: (activeUserId) => {
+        console.log(activeUserId)
         document.querySelector("#welcomeForm").innerHTML = ""
         fetch(`http://localhost:8088/users/${activeUserId}`)
             .then(r => r.json())

@@ -47,6 +47,46 @@
       "email": "Farquad",
       "password": "Farquad",
       "id": 6
+    },
+    {
+      "first_name": "z",
+      "last_name": "z",
+      "username": "z",
+      "email": "z",
+      "password": "z",
+      "id": 7
+    },
+    {
+      "first_name": "x",
+      "last_name": "x",
+      "username": "x",
+      "email": "x",
+      "password": "x",
+      "id": 8
+    },
+    {
+      "first_name": "y",
+      "last_name": "y",
+      "username": "y",
+      "email": "y",
+      "password": "y",
+      "id": 9
+    },
+    {
+      "first_name": "c",
+      "last_name": "c",
+      "username": "c",
+      "email": "c",
+      "password": "c",
+      "id": 10
+    },
+    {
+      "first_name": "m",
+      "last_name": "m",
+      "username": "m",
+      "email": "m",
+      "password": "m",
+      "id": 11
     }
   ],
   "articles": [
