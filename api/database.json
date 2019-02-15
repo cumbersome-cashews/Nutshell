@@ -29,18 +29,18 @@
   ],
   "tasks": [
     {
-      "id": 1,
-      "userId": 2,
-      "task_name": "Give cat a bath",
-      "expected_completion": "2019/02/14",
-      "completed": false
-    },
-    {
       "name": "shop",
       "description": "grocry",
       "when": "2019-02-16",
       "completed": 1550259464125,
       "id": 2
+    },
+    {
+      "name": "Gym",
+      "description": "workout",
+      "when": "2019-02-14",
+      "completed": 1550259751918,
+      "id": 3
     }
   ],
   "events": [

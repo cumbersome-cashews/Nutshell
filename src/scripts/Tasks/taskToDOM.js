@@ -7,9 +7,9 @@ let taskToDOM = (html) => {
       parsedTasks.forEach(task => {
         document.getElementById("taskList").innerHTML += `
         <div>
-        <h1>${task.task_name}</h1>
-        <p>Description ${task.task_description}</p>
-        <p>When ${task.expected_completion}.</p>
+        <h1>${task.name}</h1>
+        <p>Description ${task.description}</p>
+        <p>When ${task.when}.</p>
         <button id="completedButton">Completed Task</button>
         </div>`
       });
