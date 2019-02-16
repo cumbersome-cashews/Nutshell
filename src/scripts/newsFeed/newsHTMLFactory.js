@@ -21,7 +21,7 @@ const newsHTMLFactory = () => {
         revParsedNews.forEach(news => {
             //convert timestamp to legible time format
             const moment = require('moment');
-            const dateTimeString = moment(news.timestamp).format("MM-DD-YYYY hh:mm:ss");
+            const dateTimeString = moment(news.timestamp).format("MM-DD-YYYY hh:mm");
             let newsLinkShortener = news.url.split("/")[2]
 
             //build article html

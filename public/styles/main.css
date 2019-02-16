@@ -1,19 +1,30 @@
 #display-container,
-#newsFeed-input-container,
-#newsFeed-article-container,
-#newsInputContainer {
+#newsFeed-article-container {
     display: flex;
     flex-direction: column;
     padding: 5px;
+    max-width: 375px;
+}
+
+#newsInputContainer {
+    display: flex;
+    flex-direction: column;
+    padding: 8px;
+    max-width: 375px;
 }
 
 #newsFeed-input-container {
-    width: 40%;
-    min-width: 175px;
-    width: 337px;
+    display: flex;
+    flex-direction: column;
+    max-width: 375px;
+}
+
+#newsFeed-input-container {
+    min-width: 200px;
+    max-width: 375px;
     margin: 5px 0px 5px 0px;
-    border-radius: 10px;
-    box-shadow: 1px 1px 5px #aaaaaa;
+    border-radius: 5px;
+    box-shadow:4px 3px 9px #aaaaaa;
 }
 
 .card-button-container {
@@ -24,10 +35,12 @@
 
 .newsCardButton {
     border-radius: 5px;
+    background-color: #0774CD;
+    border: none;
+    color: white;
 }
 
 .newsCardButton:hover {
-    background-color: beige;
     box-shadow: 1px 1px 1px grey;
     cursor: pointer;
 }
@@ -51,27 +64,50 @@
     margin: 5px 0px 5px 0px;
     border-radius: 10px;
     box-shadow: 5px 5px 5px #aaaaaa;
+    background-color: white;
+    width: 360px;
 }
 
 #newsFeed-article-container {
     width: 50%;
 }
 
-#createInputButton,
+#createInputButton {
+    border-radius: 5px;
+    min-width: 200px;
+    height: 20px;
+    border: none;
+}
+#createInputButton:hover {
+    background-color: #0774CD;
+    color: white;
+    cursor: pointer;
+}
 #postArticleButton {
     border-radius: 5px;
+    min-width: 200px;
 }
 
 .postButton {
     border-radius: 5px;
     margin: 5px;
 }
+.postButton:hover {
+    background-color: #0774CD;
+    color: white;
+    box-shadow: 1px 1px 1px grey;
+    cursor: pointer;
+}
 
 .eventSummary,
 .eventURL {
-    margin: 0px 0px 5px 0px;
+    margin: 0px 0px 10px 0px;
 }
 
 .userName{
     display: flex;
+}
+
+.eventTimestamp {
+    font-size: 10px;
 }

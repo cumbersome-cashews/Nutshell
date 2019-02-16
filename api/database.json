@@ -17,7 +17,24 @@
       "password": "admin"
     }
   ],
-  "articles": [],
+  "articles": [
+    {
+      "userId": 1,
+      "title": "Why Girls Love The Dad Bod",
+      "summary": "In case you haven't noticed lately, girls are all about that dad bod.",
+      "url": "https://www.theodysseyonline.com/dad-bod",
+      "timestamp": 1550331296684,
+      "id": 1
+    },
+    {
+      "userId": 1,
+      "title": "Do you have a dad bod? This flow chart will tell you",
+      "summary": "\"In case you haven't noticed lately, girls are all about that dad bod,\" wrote Clemson University sophomore Mackenzie Pearson a few weeks ago. ",
+      "url": "https://www.washingtonpost.com/news/wonk/wp/2015/05/11/do-you-have-a-dad-bod-this-flow-chart-will-tell-you/?utm_term=.5f84122121f3",
+      "timestamp": 1550331412902,
+      "id": 2
+    }
+  ],
   "tasks": [],
   "events": [
     {
