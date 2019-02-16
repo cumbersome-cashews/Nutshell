@@ -1,6 +1,3 @@
-import createHTML from "./createHTML"
-import addToDOM from "./addToDOM"
-
 const entryManager = {
 
   getMessages: () => {
@@ -8,6 +5,12 @@ const entryManager = {
       .then(res => res.json())
   }
   ,
+  getMessage: (messageId) => {
+    return fetch(`http://127.0.0.1:8088/messages/${messageId}`)
+      .then(res => res.json())
+  },
+
+
   postMessage: (messageObject) => {
     return fetch("http://127.0.0.1:8088/messages", {
       method: "POST",
@@ -19,8 +22,8 @@ const entryManager = {
       .then(res => res.json())
   },
 
-  editMessage: (message, messageId) => {
-    return fetch(`http://127.0.0.1:8088/messages/${messageId}`, {
+  editMessage: (message, id) => {
+    return fetch(`http://127.0.0.1:8088/messages/${id}`, {
       method: "PUT",
       headers: {
         "Content-Type": "application/json"
@@ -29,9 +32,7 @@ const entryManager = {
     }
     )
       .then(res => res.json())
-
   },
-
 }
 export default entryManager
 

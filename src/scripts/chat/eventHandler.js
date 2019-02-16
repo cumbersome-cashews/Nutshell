@@ -3,6 +3,8 @@ import entryManager from "./entryManager"
 import createHTML from "./createHTML"
 import addToDOM from "./addToDOM"
 import scrollToBottom from "./scroll.js";
+import clearChildren from "./clear.js";
+import onLoad from "./onLoad.js";
 
 const userId = 1
 const eventHandler = {
@@ -14,32 +16,34 @@ const eventHandler = {
       const newObject = createObject(userId, messageText, time)
       entryManager.postMessage(newObject)
         .then(obj => {
-          const HTML = createHTML.createHTML(obj)
+          const HTML = createHTML.createObjectHTML(obj)
           addToDOM(HTML)
           scrollToBottom()
         }
         )
-      // console.log(HTML)
-      // const output = document.querySelector("#message_output_container")
     })
   },
   editListener: () => {
     const messageOutputContainer = document.querySelector("#message_output_container")
     messageOutputContainer.addEventListener("click", (event) => {
-      if (event.target.id.startsWith("edit_button") &&
-        event.target.textContent === "Edit message") {
-        const id = event.target.id.split("--")[1]
-        const div = document.getElementById(id)
-        const newInput = document.createElement("input")
-        newInput.setAttribute("id", `input--${id}`)
-        div.appendChild(newInput)
-        event.target.textContent = "Update message"
-      } else if (event.target.id.startsWith("edit_button") &&
-        event.target.textContent === "Update message") {
-        newInput.value = "Hi"
-        // entryManager.editMessage(newInput.value, id)
+      const id = event.target.id.split("--")[1]
+      const clickedDiv = document.getElementById(id)
+      if (event.target.id.startsWith("edit_button")) {
+        entryManager.getMessage(id).then((message) => {
+          if (event.target.textContent === "Edit message") {
+            createHTML.createInput(clickedDiv, message.content, id, message.content.length)
+            console.log(typeof message.content.length)
+            event.target.textContent = "Update message"
+          } else if (event.target.textContent === "Update message") {
+            message.content = document.getElementById(`input--${id}`).value
+            const editedObj = createObject(message.userId, message.content, message.messageDate)
+            entryManager.editMessage(editedObj, id).then(() => {
+              clearChildren(messageOutputContainer)
+              onLoad.outputAllMessages()
+            })
+          }
+        })
       }
-
     }
     )
   }

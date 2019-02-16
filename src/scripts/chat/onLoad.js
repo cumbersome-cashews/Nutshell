@@ -7,7 +7,7 @@ const onLoad = {
       .then(messages => {
         // clearDOM()
         messages.forEach(message => {
-          const html = createHTML.createHTML(message)
+          const html = createHTML.createObjectHTML(message)
           addToDOM(html)
         })
       })

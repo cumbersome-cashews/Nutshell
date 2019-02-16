@@ -1,29 +1,13 @@
 const createHTML = {
-  createHTML: (message) => {
-    //     return `
-    // <article class = "chat_message">
-    // <section class = "user">
-    // <h3>${message.userId}</h3>
-    // </section>
-    // <section class = "text">
-    // <p>${message.content}</p>
-    // </section>
-    // <section class = "date">
-    // <p>${message.messageDate}</p>
-    // </section>
-    // <button id ="edit_button">Edit this message</button>
-    // `
+  createObjectHTML: (message) => {
     const messageDiv = document.createElement("div")
     messageDiv.setAttribute("id", `${message.id}`)
-    const name = document.createElement("h3")
-    const nameT = document.createTextNode(`${message.userId}`)
-    name.appendChild(nameT)
-    messageDiv.appendChild(name)
-    const content = document.createElement("p")
-    const contentT = document.createTextNode(`${message.content}`)
-    content.appendChild(contentT)
-    messageDiv.appendChild(content)
-    const time = document.createElement("p")
+    const nameAndText = document.createElement("p")
+    const nameAndTextT = document.createTextNode(`${message.userId}: ${message.content}`)
+    nameAndText.appendChild(nameAndTextT)
+    messageDiv.appendChild(nameAndText)
+    const time = document.createElement("span")
+    time.setAttribute("class", "time")
     const timeT = document.createTextNode(`${message.messageDate}`)
     time.appendChild(timeT)
     messageDiv.appendChild(time)
@@ -34,7 +18,14 @@ const createHTML = {
       editButton.setAttribute("id", `edit_button--${message.id}`)
     }
     return messageDiv
-
+  },
+  createInput: (parent, value, idNumber, length) => {
+    const newInput = document.createElement("input")
+    newInput.setAttribute("id", `input--${idNumber}`)
+    newInput.value = value
+    const width = length * 7.1
+    newInput.style.width = `${width}px`
+    parent.appendChild(newInput)
   }
 }
 export default createHTML

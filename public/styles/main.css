@@ -5,3 +5,8 @@
 resize: both;
 overflow: auto
 }
+
+.time {
+font-size: 0.6em;
+margin: 0px 10px;
+}
