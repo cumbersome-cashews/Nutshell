@@ -1,8 +1,9 @@
 const newsForms = {
-
+    //build initial post button
     postNewArticleHTML: `
     <button id="createInputButton">Post New Article</button>
     `,
+    //build post new article form
     newsInputForm: `
     <section id="newsInputContainer">
         <input type="hidden" id=newsHiddenInput value="">

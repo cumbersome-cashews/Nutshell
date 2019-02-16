@@ -6,20 +6,18 @@ import newsHTMLFactory from "./newsHTMLFactory";
 const $ = document.querySelector.bind(document)
 
 const newsEventListener = {
-    newsInputButton() {
+    //event listeners for input container
+    inputContainer() {
+        //post new article button
         $("#newsFeed-input-container").addEventListener("click", (e) => {
             if (e.target.id === "createInputButton") {
                 newsPrintToDom.printInputField(newsForms.newsInputForm, "#newsFeed-input-container")
-            }
-        })
-    },
-    postArticleButton() {
-        $("#newsFeed-input-container").addEventListener("click", (e) => {
-            if (e.target.id === "postArticleButton" && $("#newsHiddenInput").value === "") {
+            //save new article to database
+            } else if (e.target.id === "postArticleButton" && $("#newsHiddenInput").value === "") {
                 const title = $("#newsTitleInput").value
                 const summary = $("#newsSynopsisInput").value
                 const url = $("#newsURLInput").value
-
+                //build new object
                 const newsObject = {
                     "userId": 1,
                     "title": title,
@@ -27,60 +25,68 @@ const newsEventListener = {
                     "url": url,
                     "timestamp": Date.now()
                 }
-
+                //post new object to database
                 apiHandler.postNews(newsObject)
                     .then(() => {
                         newsHTMLFactory()
                     })
+            //edit news article information button
             } else if (e.target.id === "postArticleButton" && $("#newsHiddenInput").value !== "") {
-                    const title = $("#newsTitleInput").value
-                    const summary = $("#newsSynopsisInput").value
-                    const url = $("#newsURLInput").value
-                    const articleId = $("#newsHiddenInput").value
-
-                    const newsObject = {
-                        "userId": 1,
-                        "title": title,
-                        "summary": summary,
-                        "url": url,
-                        "timestamp": Date.now()
-                    }
-                    apiHandler.editNews(articleId, newsObject)
-                        .then(() => {
-                            $("#newsFeed-article-container").innerHTML = ""
-                            newsHTMLFactory()
-                        })
-                } else if (e.target.id === "cancelPost") {
-                    newsPrintToDom.printInputField(newsForms.postNewArticleHTML, "#newsFeed-input-container")
+                const title = $("#newsTitleInput").value
+                const summary = $("#newsSynopsisInput").value
+                const url = $("#newsURLInput").value
+                const articleId = $("#newsHiddenInput").value
+                //create new object
+                const newsObject = {
+                    "userId": 1,
+                    "title": title,
+                    "summary": summary,
+                    "url": url,
+                    "timestamp": Date.now()
                 }
-            })
-        },
-    editArticleButton() {
+                //replace object in database
+                apiHandler.editNews(articleId, newsObject)
+                    .then(() => {
+                        $("#newsFeed-article-container").innerHTML = ""
+                        newsHTMLFactory()
+                    })
+            //cancel new post
+            } else if (e.target.id === "cancelPost") {
+                newsPrintToDom.printInputField(newsForms.postNewArticleHTML, "#newsFeed-input-container")
+            }
+        })
+    },
+    //event listeners for articles container
+    articleContainer() {
+        //edit single article
         $("#newsFeed-article-container").addEventListener("click", (e) => {
             const buttonId = e.target.id
             if (buttonId.includes("editArticle--")) {
-                console.log("whoops ")
+                //open new article form and prefill it with card data
                 newsPrintToDom.printInputField(newsForms.newsInputForm, "#newsFeed-input-container")
                 const articleId = buttonId.split("--")[1]
                 $("#newsHiddenInput").value = articleId
+                //change post button text to save
                 $("#postArticleButton").textContent = "Save"
+                //grab that object from API and prefill form
                 apiHandler.getOneArticle(articleId)
                     .then((article) => {
                         $("#newsTitleInput").value = article.title
                         $("#newsSynopsisInput").value = article.summary
                         $("#newsURLInput").value = article.url
                     })
-                    //remove card from database
+                //remove card from database
             } else if (buttonId.includes("removeArticle--")) {
-                    let deleteConfirmation = confirm("Are you sure?")
-                    if (deleteConfirmation === true) {
-                        const articleId = buttonId.split("--")[1]
-                        apiHandler.deleteNews(articleId)
-                            .then(() => {
-                                newsHTMLFactory()
-                            })
-                    } else break
+                //alert user
+                let deleteConfirmation = confirm("Are you sure?")
+                if (deleteConfirmation === true) {
+                    const articleId = buttonId.split("--")[1]
+                    apiHandler.deleteNews(articleId)
+                        .then(() => {
+                            newsHTMLFactory()
+                        })
                 }
+            }
         })
     }
 }
