@@ -15,7 +15,7 @@ const newsEventListener = {
     },
     postArticleButton() {
         $("#newsFeed-input-container").addEventListener("click", (e) => {
-            if (e.target.id === "postArticleButton" && $("#hiddenInput").value === "") {
+            if (e.target.id === "postArticleButton" && $("#newsHiddenInput").value === "") {
                 const title = $("#newsTitleInput").value
                 const summary = $("#newsSynopsisInput").value
                 const url = $("#newsURLInput").value
@@ -32,11 +32,11 @@ const newsEventListener = {
                     .then(() => {
                         newsHTMLFactory()
                     })
-            } else if (e.target.id === "postArticleButton" && $("#hiddenInput").value !== "") {
+            } else if (e.target.id === "postArticleButton" && $("#newsHiddenInput").value !== "") {
                     const title = $("#newsTitleInput").value
                     const summary = $("#newsSynopsisInput").value
                     const url = $("#newsURLInput").value
-                    const articleId = $("#hiddenInput").value
+                    const articleId = $("#newsHiddenInput").value
 
                     const newsObject = {
                         "userId": 1,
@@ -62,23 +62,24 @@ const newsEventListener = {
                 console.log("whoops ")
                 newsPrintToDom.printInputField(newsForms.newsInputForm, "#newsFeed-input-container")
                 const articleId = buttonId.split("--")[1]
-                $("#hiddenInput").value = articleId
+                $("#newsHiddenInput").value = articleId
                 $("#postArticleButton").textContent = "Save"
                 apiHandler.getOneArticle(articleId)
                     .then((article) => {
-                        console.log(article)
                         $("#newsTitleInput").value = article.title
                         $("#newsSynopsisInput").value = article.summary
                         $("#newsURLInput").value = article.url
                     })
-                    //remove card
+                    //remove card from database
             } else if (buttonId.includes("removeArticle--")) {
-                    // alert("Are you sure you want to do that?")
-                    const articleId = buttonId.split("--")[1]
-                    apiHandler.deleteNews(articleId)
-                        .then(() => {
-                            newsHTMLFactory()
-                        })
+                    let deleteConfirmation = confirm("Are you sure?")
+                    if (deleteConfirmation === true) {
+                        const articleId = buttonId.split("--")[1]
+                        apiHandler.deleteNews(articleId)
+                            .then(() => {
+                                newsHTMLFactory()
+                            })
+                    } else break
                 }
         })
     }
