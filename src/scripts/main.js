@@ -9,7 +9,6 @@ import newsEventListener from "./newsFeed/newsEventListenerHandler"
 // eventsApiManager(r => console.log(r))
 
 newsHTMLFactory()
-newsEventListener.editArticleButton()
 newsEventListener.newsInputButton()
 newsEventListener.postArticleButton()
 newsEventListener.editArticleButton()

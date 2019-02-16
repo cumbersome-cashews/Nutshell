@@ -27,10 +27,10 @@ const newsHTMLFactory = () => {
             const newsHTML = `
         <section class="articleContainer">
             <input type="hidden" id="${news.id}">
+            <div class="userName">@${news.user.username}</div>
             <h1 class="eventHeader">${news.title}</h1>
             <div class="eventSummary">${news.summary}</div>
             <div class="eventURL"><a href="${news.url}">${newsLinkShortener}</a></div>
-            <div class="userName">@${news.user.username}
             <div class="eventTimestamp">${dateTimeString}</div>
             <div class="card-button-container">
                 <button id="editArticle--${news.id}" class="newsCardButton">Edit</button>
