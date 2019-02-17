@@ -1,63 +1,135 @@
 {
-    "users": [
-        {
-            "id": 1,
-            "first_name": "Brian",
-            "last_name": "Neal",
-            "username": "bubbabrine",
-            "email": "brianbneal@gmail.com",
-            "password": "pa$$word"
-        },
-        {
-            "id": 2,
-            "first_name": "James",
-            "last_name": "Farrell",
-            "username": "farrellkat",
-            "email": "jamesfarrellmusic@gmail.com",
-            "password": "admin"
-        }
-    ],
-    "articles": [
-        {
-            "id": 1,
-            "userId": 1,
-            "title": "Cats Cats Cats!!!",
-            "summary": "Cats may fantasize about killing us",
-            "url": "https://news.nationalgeographic.com/news/2014/01/140127-cats-pets-animals-nation-dogs-people-science/",
-            "timestamp": 178024
-        }
-    ],
-    "tasks": [
-        {
-            "id": 1,
-            "userId": 2,
-            "task_name": "Give cat a bath",
-            "expected_completion": "2019/02/14",
-            "completed": false
-        }
-    ],
-    "events": [
-        {
-            "id": 1,
-            "userId": 2,
-            "name": "cat briss",
-            "date": "2019/02/15",
-            "location": "James' house"
-        }
-    ],
-    "messages": [
-        {
-            "id": 1,
-            "userId": 1,
-            "content": "James does weird things with his cat",
-            "timestamp": 102875
-        }
-    ],
-    "friends": [
-        {
-            "id": 1,
-            "userId": 1,
-            "friendId": 2
-        }
-    ]
+  "users": [
+    {
+      "id": 1,
+      "first_name": "Brian",
+      "last_name": "Neal",
+      "username": "bubbabrine",
+      "email": "brianbneal@gmail.com",
+      "password": "pa$$word"
+    },
+    {
+      "id": 2,
+      "first_name": "James",
+      "last_name": "Farrell",
+      "username": "farrellkat",
+      "email": "jamesfarrellmusic@gmail.com",
+      "password": "admin"
+    },
+    {
+      "first_name": "po",
+      "last_name": "po",
+      "username": "po",
+      "email": "po",
+      "password": "po",
+      "id": 3
+    },
+    {
+      "first_name": "Buttface",
+      "last_name": "b",
+      "username": "b",
+      "email": "b",
+      "password": "b",
+      "id": 4
+    },
+    {
+      "first_name": "buttface",
+      "last_name": "buttface",
+      "username": "buttface",
+      "email": "buttface",
+      "password": "buttface",
+      "id": 5
+    },
+    {
+      "first_name": "Farquad",
+      "last_name": "Farquad",
+      "username": "Farquad",
+      "email": "Farquad",
+      "password": "Farquad",
+      "id": 6
+    },
+    {
+      "first_name": "z",
+      "last_name": "z",
+      "username": "z",
+      "email": "z",
+      "password": "z",
+      "id": 7
+    },
+    {
+      "first_name": "x",
+      "last_name": "x",
+      "username": "x",
+      "email": "x",
+      "password": "x",
+      "id": 8
+    },
+    {
+      "first_name": "y",
+      "last_name": "y",
+      "username": "y",
+      "email": "y",
+      "password": "y",
+      "id": 9
+    },
+    {
+      "first_name": "c",
+      "last_name": "c",
+      "username": "c",
+      "email": "c",
+      "password": "c",
+      "id": 10
+    },
+    {
+      "first_name": "m",
+      "last_name": "m",
+      "username": "m",
+      "email": "m",
+      "password": "m",
+      "id": 11
+    }
+  ],
+  "articles": [
+    {
+      "id": 1,
+      "userId": 1,
+      "title": "Cats Cats Cats!!!",
+      "summary": "Cats may fantasize about killing us",
+      "url": "https://news.nationalgeographic.com/news/2014/01/140127-cats-pets-animals-nation-dogs-people-science/",
+      "timestamp": 178024
+    }
+  ],
+  "tasks": [
+    {
+      "id": 1,
+      "userId": 2,
+      "task_name": "Give cat a bath",
+      "expected_completion": "2019/02/14",
+      "completed": false
+    }
+  ],
+  "events": [
+    {
+      "id": 1,
+      "userId": 2,
+      "name": "cat briss",
+      "date": "2019/02/15",
+      "location": "James' house"
+    }
+  ],
+  "messages": [
+    {
+      "id": 1,
+      "userId": 1,
+      "content": "James does weird things with his cat",
+      "timestamp": 102875
+    }
+  ],
+  "friends": [
+    {
+      "id": 1,
+      "userId": 1,
+      "friendId": 2
+    }
+  ]
 }
