@@ -34,18 +34,18 @@ const newsEventListener = {
                         })
                 } else if (title === "" && summary === "" && url === "") {
                     alert("Please fill all forms before posting")
-                    $("#newsTitleInput").classList.add("redErrorBorder")
-                    $("#newsSynopsisInput").classList.add("redErrorBorder")
-                    $("#newsURLInput").classList.add("redErrorBorder")
+                    $("#newsTitleInput").className = "redErrorBorder"
+                    $("#newsSynopsisInput").className = "redErrorBorder"
+                    $("#newsURLInput").className = "redErrorBorder"
                 } else if (title === "") {
                     alert("Please add a title")
-                    $("#newsTitleInput").classList.add("redErrorBorder")
+                    $("#newsTitleInput").className = "redErrorBorder"
                 } else if (summary === "") {
                     alert("Please add a summary")
-                    $("#newsSynopsisInput").classList.add("redErrorBorder")
+                    $("#newsSynopsisInput").className = "redErrorBorder"
                 } else if (url === "") {
                     alert("Please add a url")
-                    $("#newsURLInput").classList.add("redErrorBorder")
+                    $("#newsURLInput").className = "redErrorBorder"
                 }
                 //edit news article information button
             } else if (e.target.id === "postArticleButton" && $("#newsHiddenInput").value !== "") {
