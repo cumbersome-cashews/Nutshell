@@ -68,6 +68,8 @@
 #newsSynopsisInput,
 #newsURLInput {
     margin: 5px 0px;
+    border-radius: 5px;
+    border: 1px solid #dcd7d7;
 }
 
 
@@ -116,6 +118,10 @@
 
 .eventTimestamp {
     font-size: 10px;
+}
+
+.redErrorBorder {
+    border: 1px solid red;
 }
 
 @media only screen and (max-width: 590px) {

@@ -8,29 +8,46 @@ const $ = document.querySelector.bind(document)
 const newsEventListener = {
     //event listeners for input container
     inputContainer() {
-        //post new article button
+        //show new article form. "post new article"
         $("#newsFeed-input-container").addEventListener("click", (e) => {
             if (e.target.id === "createInputButton") {
                 newsPrintToDom.printInputField(newsForms.newsInputForm, "#newsFeed-input-container")
-            //save new article to database
+                //save new article to database
             } else if (e.target.id === "postArticleButton" && $("#newsHiddenInput").value === "") {
                 const title = $("#newsTitleInput").value
                 const summary = $("#newsSynopsisInput").value
                 const url = $("#newsURLInput").value
-                //build new object
-                const newsObject = {
-                    "userId": 1,
-                    "title": title,
-                    "summary": summary,
-                    "url": url,
-                    "timestamp": Date.now()
+                //verify the form is filled
+                if (title !== "" && summary !== "" && url !== "") {
+                    //build new object
+                    const newsObject = {
+                        "userId": 1,
+                        "title": title,
+                        "summary": summary,
+                        "url": url,
+                        "timestamp": Date.now()
+                    }
+                    //post new object to database
+                    apiHandler.postNews(newsObject)
+                        .then(() => {
+                            newsHTMLFactory()
+                        })
+                } else if (title === "" && summary === "" && url === "") {
+                    alert("Please fill all forms before posting")
+                    $("#newsTitleInput").classList.add("redErrorBorder")
+                    $("#newsSynopsisInput").classList.add("redErrorBorder")
+                    $("#newsURLInput").classList.add("redErrorBorder")
+                } else if (title === "") {
+                    alert("Please add a title")
+                    $("#newsTitleInput").classList.add("redErrorBorder")
+                } else if (summary === "") {
+                    alert("Please add a summary")
+                    $("#newsSynopsisInput").classList.add("redErrorBorder")
+                } else if (url === "") {
+                    alert("Please add a url")
+                    $("#newsURLInput").classList.add("redErrorBorder")
                 }
-                //post new object to database
-                apiHandler.postNews(newsObject)
-                    .then(() => {
-                        newsHTMLFactory()
-                    })
-            //edit news article information button
+                //edit news article information button
             } else if (e.target.id === "postArticleButton" && $("#newsHiddenInput").value !== "") {
                 const title = $("#newsTitleInput").value
                 const summary = $("#newsSynopsisInput").value
@@ -50,7 +67,7 @@ const newsEventListener = {
                         $("#newsFeed-article-container").innerHTML = ""
                         newsHTMLFactory()
                     })
-            //cancel new post
+                //cancel new post
             } else if (e.target.id === "cancelPost") {
                 newsPrintToDom.printInputField(newsForms.postNewArticleHTML, "#newsFeed-input-container")
             }
