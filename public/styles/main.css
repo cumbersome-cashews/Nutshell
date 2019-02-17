@@ -1,9 +1,11 @@
-#display-container,
 #newsFeed-article-container {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     padding: 5px;
-    max-width: 375px;
+    align-items: stretch;
+    flex-wrap: wrap;
+    margin: 0px 20px 0px 20px;
+    justify-content: center;
 }
 
 #newsInputContainer {
@@ -11,26 +13,38 @@
     flex-direction: column;
     padding: 8px;
     max-width: 375px;
-}
-
-#newsFeed-input-container {
-    display: flex;
-    flex-direction: column;
-    max-width: 375px;
+    border-radius: 5px;
 }
 
 #newsFeed-input-container {
     min-width: 200px;
     max-width: 375px;
-    margin: 5px 0px 5px 0px;
+    margin: auto;
     border-radius: 5px;
-    box-shadow:4px 3px 9px #aaaaaa;
+    box-shadow: 4px 3px 9px #aaaaaa;
+}
+
+.articleContainer {
+    padding: 10px;
+    margin: 5px 5px 5px 5px;
+    border-radius: 10px;
+    box-shadow: 5px 5px 5px #aaaaaa;
+    background-color: white;
+    width: 225px;
 }
 
 .card-button-container {
     display: flex;
     justify-content: space-between;
     margin: 10px 0px 0px 0px;
+}
+
+#display-container{
+    padding: 5px;
+}
+
+.postButtonContainer {
+    display: flex;
 }
 
 .newsCardButton {
@@ -45,9 +59,6 @@
     cursor: pointer;
 }
 
-.postButtonContainer {
-    display: flex;
-}
 
 #newsSynopsisInput {
     height: 100px;
@@ -59,39 +70,34 @@
     margin: 5px 0px;
 }
 
-.articleContainer {
-    padding: 10px;
-    margin: 5px 0px 5px 0px;
-    border-radius: 10px;
-    box-shadow: 5px 5px 5px #aaaaaa;
-    background-color: white;
-    width: 360px;
-}
 
-#newsFeed-article-container {
-    width: 50%;
+.newsArticleEdit {
+    background-color: #d45454
 }
 
 #createInputButton {
     border-radius: 5px;
     min-width: 200px;
-    height: 20px;
+    width: 375px;
+    padding: 5px;
     border: none;
 }
+
 #createInputButton:hover {
     background-color: #0774CD;
     color: white;
     cursor: pointer;
 }
+
 #postArticleButton {
     border-radius: 5px;
-    min-width: 200px;
 }
 
 .postButton {
     border-radius: 5px;
     margin: 5px;
 }
+
 .postButton:hover {
     background-color: #0774CD;
     color: white;
@@ -110,4 +116,21 @@
 
 .eventTimestamp {
     font-size: 10px;
+}
+
+@media only screen and (max-width: 590px) {
+    #createInputButton {
+        border-radius: 5px;
+        min-width: 200px;
+        width: 200px;
+        padding: 5px;
+        border: none;
+    }
+    #newsFeed-input-container {
+        min-width: 200px;
+        max-width: 200px;
+        margin: auto;
+        border-radius: 5px;
+        box-shadow: 4px 3px 9px #aaaaaa;
+    }
 }

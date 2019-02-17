@@ -68,6 +68,7 @@ const newsEventListener = {
                 $("#newsHiddenInput").value = articleId
                 //change post button text to save
                 $("#postArticleButton").textContent = "Save"
+                $("#newsInputContainer").classList.add('newsArticleEdit')
                 //grab that object from API and prefill form
                 apiHandler.getOneArticle(articleId)
                     .then((article) => {

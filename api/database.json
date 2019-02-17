@@ -33,6 +33,30 @@
       "url": "https://www.washingtonpost.com/news/wonk/wp/2015/05/11/do-you-have-a-dad-bod-this-flow-chart-will-tell-you/?utm_term=.5f84122121f3",
       "timestamp": 1550331412902,
       "id": 2
+    },
+    {
+      "userId": 1,
+      "title": "Judge says Paul Manafort gave false statements to investigators to protect a Russian conspirator",
+      "summary": "His attempts to shield a Russian conspirator \"gives rise to legitimate questions about where his loyalties lie,\" the judge said.",
+      "url": "https://www.nbcnews.com/politics/politics-news/judge-says-paul-manafort-gave-false-statements-investigators-protect-russian-n972381",
+      "timestamp": 1550360717260,
+      "id": 3
+    },
+    {
+      "userId": 1,
+      "title": "Be Kind to Extraterrestrials",
+      "summary": "We need to tread lightly if we encounter alien ecosystems",
+      "url": "https://blogs.scientificamerican.com/observations/be-kind-to-extraterrestrials/",
+      "timestamp": 1550362708420,
+      "id": 4
+    },
+    {
+      "userId": 1,
+      "title": "Scientists Track the Source of Soot That Speeds Arctic Melt",
+      "summary": "Heat-absorbing black carbon comes from fossil fuels in winter and biomass burning in summer\n\n",
+      "url": "https://www.scientificamerican.com/article/scientists-track-the-source-of-soot-that-speeds-arctic-melt/",
+      "timestamp": 1550361033262,
+      "id": 5
     }
   ],
   "tasks": [],
