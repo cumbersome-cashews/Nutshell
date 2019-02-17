@@ -85,5 +85,11 @@
       "timestamp": 102875
     }
   ],
-  "friends": []
+  "friends": [
+    {
+      "id": 1,
+      "userId": 1,
+      "friendId": 2
+    }
+  ]
 }
