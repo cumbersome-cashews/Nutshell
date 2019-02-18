@@ -55,8 +55,10 @@ const eventHandler = {
           friendsEntryManager.getUsers()
             .then((users) => {
               users.forEach(user => {
-                if (user.first_name.toUpperCase() === searchedName.toUpperCase()) {
-                  console.log(user)
+                if (user.first_name.toUpperCase() === searchedName.toUpperCase()
+                  || user.last_name.toUpperCase() === searchedName.toUpperCase()
+                  || `${user.first_name} ${user.last_name}`.toUpperCase() === searchedName.toUpperCase()) {
+                  console.log(`${user.last_name} ${user.first_name}`.toUpperCase())
                   if (window.confirm(`Do you want to add ${user.first_name} ${user.last_name} as a friend?`)) {
                     const newFriendship = createFriendObject(userId, user.id)
                     friendsEntryManager.addFriendship(newFriendship)

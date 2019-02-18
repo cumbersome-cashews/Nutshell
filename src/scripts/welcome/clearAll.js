@@ -8,7 +8,6 @@ const clearChildren = element => {
 
 const clearAll = () => {
     clearChildren($("#events-container"))
-    clearChildren($("#display-container"))
     clearChildren($("#newsFeed-input-container"))
     clearChildren($("#newsFeed-article-container"))
 }

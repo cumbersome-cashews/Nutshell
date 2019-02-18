@@ -29,9 +29,13 @@ const createHTML = {
     const newInput = document.createElement("input")
     newInput.setAttribute("id", `input--${idNumber}`)
     newInput.value = value
-    const width = length * 7.1
+    const width = length * 7.8
     newInput.style.width = `${width}px`
     parent.appendChild(newInput)
-  }
+  },
+
+
 }
+
+
 export default createHTML
