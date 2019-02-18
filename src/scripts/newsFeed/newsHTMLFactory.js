@@ -29,7 +29,7 @@ const newsHTMLFactory = (activeUserId) => {
             <div class="userName">@${news.user.username}</div>
             <h1 class="eventHeader">${news.title}</h1>
             <div class="eventSummary">${news.summary}</div>
-            <div class="eventURL"><a href="${news.url}">${newsLinkShortener}</a></div>
+            <div class="eventURL"><a href="${news.url}" target="_blank" >${newsLinkShortener}</a></div>
             <div class="eventTimestamp">${dateTimeString}</div>
             <div class="card-button-container">
                 <button id="editArticle--${news.id}" class="newsCardButton">Edit</button>
