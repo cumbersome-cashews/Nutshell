@@ -1,7 +1,10 @@
+// import welcomeEventHandlers from "./welcomeEventHandler";
 import printToDOM from "./printToDOM";
 import welcomeForms from "./welcomeForms";
 import welcomeApiManager from "./welcomeApiManager";
-// import welcomeEventHandlers from "./welcomeEventHandler";
+//import News Section modules
+import newsHTMLFactory from "../newsFeed/newsHTMLFactory"
+import newsEventListener from "../newsFeed/newsEventListenerHandler"
 
 const welcome = {
     welcome: (form) => {
@@ -32,20 +35,21 @@ const welcome = {
                     document.querySelector("#registration_username").focus()
                     document.querySelector("#registration_username").select()
 
-                // check if email is unique, alert if not unique
+                    // check if email is unique, alert if not unique
                 } else if (allEmails.includes(newUserObject.email.toLowerCase())) {
                     window.alert("There is already an account associated with this email adress.")
                     document.querySelector("#registration_email").focus()
                     document.querySelector("#registration_email").select()
 
-                //POST new user object if unique
+                    //POST new user object if unique
                 } else {
                     alert(`All hail Lord ${newUserObject.first_name}!!!`)
                     welcomeApiManager.postUsers(newUserObject)
                         .then(user => {
                             console.log("posted!", user)
                             sessionStorage.setItem("activeUser", user.id)
-                            welcome.showDashboard(user.id)})
+                            welcome.showDashboard(user.id)
+                        })
 
                     //pass new user object into login function
                     // .then(user => login(user))
@@ -85,6 +89,10 @@ const welcome = {
             .then(r => r.json())
             .then(data => console.log(data))
         //activate each components "show on DOM" function
+        //activate News Feed section
+        newsHTMLFactory(activeUserId)
+        newsEventListener.inputContainer(activeUserId)
+        newsEventListener.articleContainer(activeUserId)
     }
 }
 
