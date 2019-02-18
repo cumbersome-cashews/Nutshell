@@ -8,7 +8,12 @@ import newsEventListener from "../newsFeed/newsEventListenerHandler"
 
 const welcome = {
     welcome: (form) => {
-        printToDOM(form, "#welcomeForm")
+        const activeUser = sessionStorage.getItem("activeUser")
+        if (activeUser === null) {
+            printToDOM(form, "#welcomeForm")
+        } else {
+            welcome.showDashboard(activeUser)
+        }
     },
     register: () => {
         //GET existing users
