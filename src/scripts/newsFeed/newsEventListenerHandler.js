@@ -29,9 +29,9 @@ const newsEventListener = {
                     }
                     //post new object to database
                     apiHandler.postNews(activeUserId, newsObject)
-                    .then(() => {
-                        newsHTMLFactory(activeUserId)
-                    })
+                        .then(() => {
+                            newsHTMLFactory(activeUserId)
+                        })
                 } else if (title === "" && summary === "" && url === "") {
                     alert("Please fill all forms before posting")
                     $("#newsTitleInput").className = "redErrorBorder"
@@ -64,10 +64,10 @@ const newsEventListener = {
                 }
                 //replace object in database
                 apiHandler.editNews(articleId, newsObject)
-                .then(() => {
-                    $("#newsFeed-article-container").innerHTML = ""
-                    newsHTMLFactory(activeUserId)
-                })
+                    .then(() => {
+                        $("#newsFeed-article-container").innerHTML = ""
+                        newsHTMLFactory(activeUserId)
+                    })
                 //cancel new post
             } else if (e.target.id === "cancelPost") {
                 newsPrintToDom.printInputField(newsForms.postNewArticleHTML, "#newsFeed-input-container")
@@ -102,7 +102,6 @@ const newsEventListener = {
                 if (deleteConfirmation === true) {
                     const stringArticleId = buttonId.split("--")[1]
                     const articleId = parseInt(stringArticleId)
-                    console.log(articleId, activeUserId)
                     apiHandler.deleteNews(articleId)
                         .then(() => {
                             newsHTMLFactory(activeUserId)

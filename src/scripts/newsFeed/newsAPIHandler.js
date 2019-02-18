@@ -2,11 +2,11 @@
 const apiHandler = {
     getNews: (userId) => {
         return fetch(`http://localhost:8088/articles?_expand=user&userId=${userId}`)
-        .then(res => res.json())
+            .then(res => res.json())
     },
     getOneArticle: (id) => {
         return fetch(`http://localhost:8088/articles/${id}`)
-        .then(res => res.json())
+            .then(res => res.json())
     },
     postNews: (userId, obj) => {
         return fetch(`http://localhost:8088/articles?_expand=user&userId=${userId}`, {
