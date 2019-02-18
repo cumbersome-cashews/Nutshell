@@ -2,19 +2,32 @@ const $ = document.querySelector.bind(document)
 
 const navbarHTML =
 `
-<div class="pos-f-t">
-<div class="collapse" id="navbarToggleExternalContent">
-<div class="bg-dark p-4">
-  <h4 class="text-white">Nutshell by Cumbersome Cashews</h4>
-  <span class="text-muted">Toggleable via the navbar brand.</span>
-</div>
-</div>
 <nav class="navbar navbar-dark bg-dark">
-<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
-  <span class="navbar-toggler-icon"></span>
-</button>
+  <a class="navbar-brand" href="#">Navbar</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Tasks</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Chat</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#events-container">Events</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#newsFeed-input-container">News</a>
+      </li>
+    </ul>
+  </div>
 </nav>
-</div>
 `
 
 const navbarBuilder = () => {
