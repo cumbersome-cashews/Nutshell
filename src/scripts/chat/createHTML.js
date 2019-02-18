@@ -2,16 +2,22 @@ const createHTML = {
   createObjectHTML: (message) => {
     const messageDiv = document.createElement("div")
     messageDiv.setAttribute("id", `${message.id}`)
-    const nameAndText = document.createElement("p")
-    const nameAndTextT = document.createTextNode(`${message.userId}: ${message.content}`)
-    nameAndText.appendChild(nameAndTextT)
-    messageDiv.appendChild(nameAndText)
+    const name = document.createElement("span")
+    name.setAttribute("class", `user--${message.user.id}`)
+    const nameT = document.createTextNode(`${message.user.first_name} ${message.user.last_name}`)
+    name.appendChild(nameT)
+    messageDiv.appendChild(name)
+    const text = document.createElement("span")
+    const textT = document.createTextNode(`: ${message.content}`)
+    text.appendChild(textT)
+    messageDiv.appendChild(text)
+
     const time = document.createElement("span")
     time.setAttribute("class", "time")
     const timeT = document.createTextNode(`${message.messageDate}`)
     time.appendChild(timeT)
     messageDiv.appendChild(time)
-    if (message.userId === 1) {
+    if (message.userId === parseInt(sessionStorage.activeUser)) {
       const editButton = document.createElement("button")
       editButton.textContent = "Edit message"
       messageDiv.appendChild(editButton)

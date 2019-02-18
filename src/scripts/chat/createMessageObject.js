@@ -1,8 +1,8 @@
-const createObject = (userId, text, time) => {
+const createMessageObject = (userId, text, time) => {
   return {
     userId: userId,
     content: text,
     messageDate: time
   }
 }
-export default createObject
+export default createMessageObject
