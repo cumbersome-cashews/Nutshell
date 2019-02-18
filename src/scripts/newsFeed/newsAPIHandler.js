@@ -1,14 +1,15 @@
+
 const apiHandler = {
-    getNews: () => {
-        return fetch(`http://localhost:8088/articles?_expand=user&_userId=1`)
-            .then(res => res.json())
+    getNews: (userId) => {
+        return fetch(`http://localhost:8088/articles?_expand=user&userId=${userId}`)
+        .then(res => res.json())
     },
     getOneArticle: (id) => {
-        return fetch(`http://localhost:8088/articles?_expand=user&_userId=1&${id}`)
-            .then(res => res.json())
+        return fetch(`http://localhost:8088/articles/${id}`)
+        .then(res => res.json())
     },
-    postNews: (obj) => {
-        return fetch(`http://localhost:8088/articles?_expand=user&_userId=1`, {
+    postNews: (userId, obj) => {
+        return fetch(`http://localhost:8088/articles?_expand=user&userId=${userId}`, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
@@ -17,7 +18,7 @@ const apiHandler = {
         })
     },
     editNews: (id, obj) => {
-        return fetch(`http://localhost:8088/articles?_expand=user&_userId=1&${id}`, {
+        return fetch(`http://localhost:8088/articles/${id}`, {
             method: "PUT",
             headers: {
                 "Content-Type": "application/json"
@@ -26,7 +27,7 @@ const apiHandler = {
         })
     },
     deleteNews: (id) => {
-        return fetch(`http://localhost:8088/articles?_expand=user&_userId=1&${id}`, {
+        return fetch(`http://localhost:8088/articles/${id}`, {
             method: "DELETE",
         })
     }

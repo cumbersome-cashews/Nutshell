@@ -65,6 +65,41 @@
       "url": "https://www.scientificamerican.com/podcast/episode/finally-over-for-mars-rover/",
       "timestamp": 1550362983534,
       "id": 6
+    },
+    {
+      "userId": 1,
+      "title": "Cats Cats Cats!!",
+      "summary": "cats",
+      "url": "https://www.cnn.com/2019/02/14/world/queensland-dinosaur-footprints-floods-scli-intl/index.html",
+      "timestamp": 1550440691281,
+      "id": 8
+    },
+    {
+      "id": 11
+    },
+    {
+      "userId": 2,
+      "title": "Benmont Tench Plays NYC March 19 & 20",
+      "summary": "Benmont Tench will perform intimate solo shows at Rockwood Music Hall in New York on March 19th and March 20th. ",
+      "url": "https://www.keyboardmag.com/artists/benmont-tench-plays-nyc-march-19-20",
+      "timestamp": 1550502574624,
+      "id": 12
+    },
+    {
+      "userId": 2,
+      "title": "Korg to Debut Minilogue XD at Winter NAMM",
+      "summary": "KORG’s minilogue has evolved with the release of the minilogue XD. The all-new minilogue XD takes on the form factor of KORG’s best-selling analog synth while adding powerful new features and sound creation possibilities.",
+      "url": "https://www.keyboardmag.com/gear/korg-to-debut-minilogue-xd-at-winter-namm",
+      "timestamp": 1550502776226,
+      "id": 13
+    },
+    {
+      "userId": 2,
+      "title": " JOUÉ Introduces the Grand Clavier",
+      "summary": "New and born of the expressive Magic Modules range, the Grand Clavier has 25 expressive keys to subtly play any type of digital instruments. The Glissando mode allows continuous pitch-bend between notes and to enjoy microtonal interpretation. ",
+      "url": "https://www.keyboardmag.com/gear/jou%C3%A9-introduces-the-grand-clavier",
+      "timestamp": 1550502690645,
+      "id": 14
     }
   ],
   "tasks": [],
@@ -85,11 +120,5 @@
       "timestamp": 102875
     }
   ],
-  "friends": [
-    {
-      "id": 1,
-      "userId": 1,
-      "friendId": 2
-    }
-  ]
+  "friends": []
 }

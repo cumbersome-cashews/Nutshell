@@ -6,16 +6,14 @@ const $ = document.querySelector.bind(document)
 const articleContainer = $("#newsFeed-article-container")
 
 //create and print "post new article" button
-const newsHTMLFactory = () => {
-
+const newsHTMLFactory = (activeUserId) => {
     newsPrintToDom.printInputField(newsForms.postNewArticleHTML, "#newsFeed-input-container")
 
     //clear the DOM before adding articles
     articleContainer.innerHTML = ""
 
     //fetch all articles from database
-    apiHandler.getNews().then((parsedNews) => {
-
+    apiHandler.getNews(activeUserId).then((parsedNews) => {
         const revParsedNews = parsedNews.reverse()
         //loop through array of articles and make html
         revParsedNews.forEach(news => {

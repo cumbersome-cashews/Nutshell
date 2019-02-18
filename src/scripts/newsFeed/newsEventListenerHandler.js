@@ -7,7 +7,7 @@ const $ = document.querySelector.bind(document)
 
 const newsEventListener = {
     //event listeners for input container
-    inputContainer() {
+    inputContainer(activeUserId) {
         //show new article form. "post new article"
         $("#newsFeed-input-container").addEventListener("click", (e) => {
             if (e.target.id === "createInputButton") {
@@ -21,17 +21,17 @@ const newsEventListener = {
                 if (title !== "" && summary !== "" && url !== "") {
                     //build new object
                     const newsObject = {
-                        "userId": 1,
+                        "userId": parseInt(activeUserId),
                         "title": title,
                         "summary": summary,
                         "url": url,
                         "timestamp": Date.now()
                     }
                     //post new object to database
-                    apiHandler.postNews(newsObject)
-                        .then(() => {
-                            newsHTMLFactory()
-                        })
+                    apiHandler.postNews(activeUserId, newsObject)
+                    .then(() => {
+                        newsHTMLFactory(activeUserId)
+                    })
                 } else if (title === "" && summary === "" && url === "") {
                     alert("Please fill all forms before posting")
                     $("#newsTitleInput").className = "redErrorBorder"
@@ -52,10 +52,11 @@ const newsEventListener = {
                 const title = $("#newsTitleInput").value
                 const summary = $("#newsSynopsisInput").value
                 const url = $("#newsURLInput").value
-                const articleId = $("#newsHiddenInput").value
+                const stringArticleId = $("#newsHiddenInput").value
+                const articleId = parseInt(stringArticleId)
                 //create new object
                 const newsObject = {
-                    "userId": 1,
+                    "userId": parseInt(activeUserId),
                     "title": title,
                     "summary": summary,
                     "url": url,
@@ -63,10 +64,10 @@ const newsEventListener = {
                 }
                 //replace object in database
                 apiHandler.editNews(articleId, newsObject)
-                    .then(() => {
-                        $("#newsFeed-article-container").innerHTML = ""
-                        newsHTMLFactory()
-                    })
+                .then(() => {
+                    $("#newsFeed-article-container").innerHTML = ""
+                    newsHTMLFactory(activeUserId)
+                })
                 //cancel new post
             } else if (e.target.id === "cancelPost") {
                 newsPrintToDom.printInputField(newsForms.postNewArticleHTML, "#newsFeed-input-container")
@@ -74,7 +75,8 @@ const newsEventListener = {
         })
     },
     //event listeners for articles container
-    articleContainer() {
+    articleContainer(activeUserId) {
+
         //edit single article
         $("#newsFeed-article-container").addEventListener("click", (e) => {
             const buttonId = e.target.id
@@ -82,12 +84,12 @@ const newsEventListener = {
                 //open new article form and prefill it with card data
                 newsPrintToDom.printInputField(newsForms.newsInputForm, "#newsFeed-input-container")
                 const articleId = buttonId.split("--")[1]
-                $("#newsHiddenInput").value = articleId
+                $("#newsHiddenInput").value = parseInt(articleId)
                 //change post button text to save
                 $("#postArticleButton").textContent = "Save"
                 $("#newsInputContainer").classList.add('newsArticleEdit')
                 //grab that object from API and prefill form
-                apiHandler.getOneArticle(articleId)
+                apiHandler.getOneArticle(parseInt(articleId))
                     .then((article) => {
                         $("#newsTitleInput").value = article.title
                         $("#newsSynopsisInput").value = article.summary
@@ -98,10 +100,12 @@ const newsEventListener = {
                 //alert user
                 let deleteConfirmation = confirm("Are you sure?")
                 if (deleteConfirmation === true) {
-                    const articleId = buttonId.split("--")[1]
+                    const stringArticleId = buttonId.split("--")[1]
+                    const articleId = parseInt(stringArticleId)
+                    console.log(articleId, activeUserId)
                     apiHandler.deleteNews(articleId)
                         .then(() => {
-                            newsHTMLFactory()
+                            newsHTMLFactory(activeUserId)
                         })
                 }
             }
