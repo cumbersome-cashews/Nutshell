@@ -1,5 +1,5 @@
-const printEvents = (events) => {
-    document.querySelector("#eventsContainer").innerHTML = events
+const printEvents = (what, where) => {
+    document.querySelector(where).innerHTML = what
 }
 
 export default printEvents
