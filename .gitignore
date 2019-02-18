@@ -1,3 +1,4 @@
 node_modules
-database.json
 bundle.js
+database.json
+api/

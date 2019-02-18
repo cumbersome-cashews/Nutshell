@@ -7,7 +7,9 @@ const clearChildren = element => {
 }
 
 const clearAll = () => {
-    clearChildren($("#events-container"))
+    clearChildren($("#eventsList"))
+    clearChildren($("#eventsForm"))
+    clearChildren($("#taskList"))
     clearChildren($("#newsFeed-input-container"))
     clearChildren($("#newsFeed-article-container"))
 }
