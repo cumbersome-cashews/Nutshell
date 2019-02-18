@@ -15,99 +15,94 @@
       "username": "farrellkat",
       "email": "jamesfarrellmusic@gmail.com",
       "password": "admin"
-    },
-    {
-      "first_name": "po",
-      "last_name": "po",
-      "username": "po",
-      "email": "po",
-      "password": "po",
-      "id": 3
-    },
-    {
-      "first_name": "Buttface",
-      "last_name": "b",
-      "username": "b",
-      "email": "b",
-      "password": "b",
-      "id": 4
-    },
-    {
-      "first_name": "buttface",
-      "last_name": "buttface",
-      "username": "buttface",
-      "email": "buttface",
-      "password": "buttface",
-      "id": 5
-    },
-    {
-      "first_name": "Farquad",
-      "last_name": "Farquad",
-      "username": "Farquad",
-      "email": "Farquad",
-      "password": "Farquad",
-      "id": 6
-    },
-    {
-      "first_name": "z",
-      "last_name": "z",
-      "username": "z",
-      "email": "z",
-      "password": "z",
-      "id": 7
-    },
-    {
-      "first_name": "x",
-      "last_name": "x",
-      "username": "x",
-      "email": "x",
-      "password": "x",
-      "id": 8
-    },
-    {
-      "first_name": "y",
-      "last_name": "y",
-      "username": "y",
-      "email": "y",
-      "password": "y",
-      "id": 9
-    },
-    {
-      "first_name": "c",
-      "last_name": "c",
-      "username": "c",
-      "email": "c",
-      "password": "c",
-      "id": 10
-    },
-    {
-      "first_name": "m",
-      "last_name": "m",
-      "username": "m",
-      "email": "m",
-      "password": "m",
-      "id": 11
     }
   ],
   "articles": [
     {
-      "id": 1,
       "userId": 1,
-      "title": "Cats Cats Cats!!!",
-      "summary": "Cats may fantasize about killing us",
-      "url": "https://news.nationalgeographic.com/news/2014/01/140127-cats-pets-animals-nation-dogs-people-science/",
-      "timestamp": 178024
-    }
-  ],
-  "tasks": [
+      "title": "Why Girls Love The Dad Bod",
+      "summary": "In case you haven't noticed lately, girls are all about that dad bod.",
+      "url": "https://www.theodysseyonline.com/dad-bod",
+      "timestamp": 1550331296684,
+      "id": 1
+    },
     {
-      "id": 1,
+      "userId": 1,
+      "title": "Do you have a dad bod? This flow chart will tell you",
+      "summary": "\"In case you haven't noticed lately, girls are all about that dad bod,\" wrote Clemson University sophomore Mackenzie Pearson a few weeks ago. ",
+      "url": "https://www.washingtonpost.com/news/wonk/wp/2015/05/11/do-you-have-a-dad-bod-this-flow-chart-will-tell-you/?utm_term=.5f84122121f3",
+      "timestamp": 1550331412902,
+      "id": 2
+    },
+    {
+      "userId": 1,
+      "title": "Judge says Paul Manafort gave false statements to investigators to protect a Russian conspirator",
+      "summary": "His attempts to shield a Russian conspirator \"gives rise to legitimate questions about where his loyalties lie,\" the judge said.",
+      "url": "https://www.nbcnews.com/politics/politics-news/judge-says-paul-manafort-gave-false-statements-investigators-protect-russian-n972381",
+      "timestamp": 1550360717260,
+      "id": 3
+    },
+    {
+      "userId": 1,
+      "title": "Be Kind to Extraterrestrials",
+      "summary": "We need to tread lightly if we encounter alien ecosystems",
+      "url": "https://blogs.scientificamerican.com/observations/be-kind-to-extraterrestrials/",
+      "timestamp": 1550362708420,
+      "id": 4
+    },
+    {
+      "userId": 1,
+      "title": "Scientists Track the Source of Soot That Speeds Arctic Melt",
+      "summary": "Heat-absorbing black carbon comes from fossil fuels in winter and biomass burning in summer\n\n",
+      "url": "https://www.scientificamerican.com/article/scientists-track-the-source-of-soot-that-speeds-arctic-melt/",
+      "timestamp": 1550361033262,
+      "id": 5
+    },
+    {
+      "userId": 1,
+      "title": "Finally Over for Mars Rover",
+      "summary": "The rover Opportunity has called it quits after working for more than 14 years on Mars.\n\n",
+      "url": "https://www.scientificamerican.com/podcast/episode/finally-over-for-mars-rover/",
+      "timestamp": 1550362983534,
+      "id": 6
+    },
+    {
+      "userId": 1,
+      "title": "Cats Cats Cats!!",
+      "summary": "cats",
+      "url": "https://www.cnn.com/2019/02/14/world/queensland-dinosaur-footprints-floods-scli-intl/index.html",
+      "timestamp": 1550440691281,
+      "id": 8
+    },
+    {
+      "id": 11
+    },
+    {
       "userId": 2,
-      "task_name": "Give cat a bath",
-      "expected_completion": "2019/02/14",
-      "completed": false
+      "title": "Benmont Tench Plays NYC March 19 & 20",
+      "summary": "Benmont Tench will perform intimate solo shows at Rockwood Music Hall in New York on March 19th and March 20th. ",
+      "url": "https://www.keyboardmag.com/artists/benmont-tench-plays-nyc-march-19-20",
+      "timestamp": 1550502574624,
+      "id": 12
+    },
+    {
+      "userId": 2,
+      "title": "Korg to Debut Minilogue XD at Winter NAMM",
+      "summary": "KORG’s minilogue has evolved with the release of the minilogue XD. The all-new minilogue XD takes on the form factor of KORG’s best-selling analog synth while adding powerful new features and sound creation possibilities.",
+      "url": "https://www.keyboardmag.com/gear/korg-to-debut-minilogue-xd-at-winter-namm",
+      "timestamp": 1550502776226,
+      "id": 13
+    },
+    {
+      "userId": 2,
+      "title": " JOUÉ Introduces the Grand Clavier",
+      "summary": "New and born of the expressive Magic Modules range, the Grand Clavier has 25 expressive keys to subtly play any type of digital instruments. The Glissando mode allows continuous pitch-bend between notes and to enjoy microtonal interpretation. ",
+      "url": "https://www.keyboardmag.com/gear/jou%C3%A9-introduces-the-grand-clavier",
+      "timestamp": 1550502690645,
+      "id": 14
     }
   ],
+  "tasks": [],
   "events": [
     {
       "id": 1,
@@ -125,11 +120,5 @@
       "timestamp": 102875
     }
   ],
-  "friends": [
-    {
-      "id": 1,
-      "userId": 1,
-      "friendId": 2
-    }
-  ]
+  "friends": []
 }
