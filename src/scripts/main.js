@@ -7,6 +7,7 @@ onLoad.outputAllMessages()
 eventHandler.editListener()
 eventHandler.nameFriendListener()
 findFriendIds()
+eventHandler.addFriendListener()
 
 import welcome from "./welcome/welcome";
 import welcomeForms from "./welcome/welcomeForms";

@@ -46,17 +46,34 @@ const eventHandler = {
   }
   ,
   addFriendListener: () => {
-    const addFriendButton = document.querySelector("add_friend_button")
+    const addFriendButton = document.querySelector("#add_friend_button")
     addFriendButton.addEventListener("click", () => {
-      const friendSearchInput = document.createElement("input")
-      messageOutputContainer.appendChild(friendSearchInput)
-      friendSearchInput.value = "Enter your friend's name"
-
-      // findFriendIds().then((arrayOfFriends) => {
-      // })
+      const friendSearchInput = document.querySelector("#friend_search_input")
+      if (friendSearchInput) {
+        const searchedName = friendSearchInput.value
+        findFriendIds().then((arrayOfFriends) => {
+          friendsEntryManager.getUsers()
+            .then((users) => {
+              users.forEach(user => {
+                if (user.first_name.toUpperCase() === searchedName.toUpperCase()) {
+                  console.log(user)
+                  if (window.confirm(`Do you want to add ${user.first_name} ${user.last_name} as a friend?`)) {
+                    const newFriendship = createFriendObject(userId, user.id)
+                    friendsEntryManager.addFriendship(newFriendship)
+                  }
+                }
+              })
+            })
+        })
+      } else {
+        addFriendButton.textContent = "Search"
+        const friendSearchInput = document.createElement("input")
+        friendSearchInput.setAttribute("id", "friend_search_input")
+        document.querySelector("#add_friend_container").appendChild(friendSearchInput)
+        friendSearchInput.value = "Enter your friend's first name"
+      }
     })
   },
-
   editListener: () => {
     messageOutputContainer.addEventListener("click", (event) => {
       const id = event.target.id.split("--")[1]
@@ -80,8 +97,8 @@ const eventHandler = {
     )
   }
 }
+
+
 export default eventHandler
-
-
 
 
