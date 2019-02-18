@@ -12,13 +12,13 @@
     display: flex;
     flex-direction: column;
     padding: 8px;
-    max-width: 375px;
+    max-width: 500px;
     border-radius: 5px;
 }
 
 #newsFeed-input-container {
     min-width: 200px;
-    max-width: 375px;
+    max-width: 500px;
     margin: auto;
     border-radius: 5px;
     box-shadow: 4px 3px 9px #aaaaaa;
@@ -30,7 +30,7 @@
     border-radius: 10px;
     box-shadow: 5px 5px 5px #aaaaaa;
     background-color: white;
-    width: 225px;
+    width: 100%;
 }
 
 .card-button-container {
@@ -86,7 +86,7 @@
 #createInputButton {
     border-radius: 5px;
     min-width: 200px;
-    width: 375px;
+    width: 500px;
     padding: 5px;
     border: none;
 }
@@ -131,13 +131,13 @@
     #createInputButton {
         border-radius: 5px;
         min-width: 200px;
-        width: 200px;
+        width: 300px;
         padding: 5px;
         border: none;
     }
     #newsFeed-input-container {
         min-width: 200px;
-        max-width: 200px;
+        max-width: 300px;
         margin: auto;
         border-radius: 5px;
         box-shadow: 4px 3px 9px #aaaaaa;

@@ -1,6 +1,7 @@
 import apiHandler from "./newsAPIHandler"
 import newsPrintToDom from "./newsPrintToDom";
 import newsForms from "./newsInputForm";
+import moment from "moment"
 
 const $ = document.querySelector.bind(document)
 const articleContainer = $("#newsFeed-article-container")
@@ -18,7 +19,6 @@ const newsHTMLFactory = (activeUserId) => {
         //loop through array of articles and make html
         revParsedNews.forEach(news => {
             //convert timestamp to legible time format
-            const moment = require('moment');
             const dateTimeString = moment(news.timestamp).format("MM-DD-YYYY hh:mm");
             let newsLinkShortener = news.url.split("/")[2]
 
