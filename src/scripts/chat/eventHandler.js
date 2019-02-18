@@ -46,12 +46,14 @@ const eventHandler = {
   }
   ,
   addFriendListener: () => {
-    findFriendIds().then((arrayOfFriends) => {
+    const addFriendButton = document.querySelector("add_friend_button")
+    addFriendButton.addEventListener("click", () => {
       const friendSearchInput = document.createElement("input")
-      friendSearchInput.value = ""
+      messageOutputContainer.appendChild(friendSearchInput)
+      friendSearchInput.value = "Enter your friend's name"
 
-
-
+      // findFriendIds().then((arrayOfFriends) => {
+      // })
     })
   },
 
