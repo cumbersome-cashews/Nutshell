@@ -10,6 +10,7 @@ const onLoad = {
           const html = createHTML.createObjectHTML(message)
           addToDOM(html)
         })
+        console.log(sessionStorage.activeUser)
       })
   }
 }
