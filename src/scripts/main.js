@@ -1,3 +1,5 @@
+// import eventApiManager from "./events/eventApiManager";
+// import printEvents from "./events/eventPrint";
 import taskToDOM from "./Tasks/taskToDOM"
 import taskForm from "./Tasks/taskForm"
 
@@ -12,3 +14,6 @@ import moment from "moment"
 navbarBuilder()
 welcome.welcome(welcomeForms.loginForm)
 welcomeEventHandlers.all()
+
+// eventApiManager.getEvents()
+    // .then(eventsData => printEvents(eventsData))

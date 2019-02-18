@@ -1,8 +1,4 @@
 node_modules
-<<<<<<< HEAD
 bundle.js
-*.json
-=======
 database.json
-bundle.js
->>>>>>> master
+api/
