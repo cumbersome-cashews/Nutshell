@@ -7,9 +7,10 @@ const $ = document.querySelector.bind(document)
 
 const newsEventListener = {
     //event listeners for input container
-    inputContainer(activeUserId) {
+    inputContainer() {
         //show new article form. "post new article"
         $("#newsFeed-input-container").addEventListener("click", (e) => {
+            const activeUserId = sessionStorage.getItem("activeUser")
             if (e.target.id === "createInputButton") {
                 newsPrintToDom.printInputField(newsForms.newsInputForm, "#newsFeed-input-container")
                 //save new article to database
@@ -75,10 +76,10 @@ const newsEventListener = {
         })
     },
     //event listeners for articles container
-    articleContainer(activeUserId) {
-
+    articleContainer() {
         //edit single article
         $("#newsFeed-article-container").addEventListener("click", (e) => {
+            const activeUserId = sessionStorage.getItem("activeUser")
             const buttonId = e.target.id
             if (buttonId.includes("editArticle--")) {
                 //open new article form and prefill it with card data

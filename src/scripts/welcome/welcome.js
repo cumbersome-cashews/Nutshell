@@ -4,7 +4,6 @@ import welcomeForms from "./welcomeForms";
 import welcomeApiManager from "./welcomeApiManager";
 //import News Section modules
 import newsHTMLFactory from "../newsFeed/newsHTMLFactory"
-import newsEventListener from "../newsFeed/newsEventListenerHandler"
 
 const welcome = {
     welcome: (form) => {
@@ -96,8 +95,6 @@ const welcome = {
         //activate each components "show on DOM" function
         //activate News Feed section
         newsHTMLFactory(activeUserId)
-        newsEventListener.inputContainer(activeUserId)
-        newsEventListener.articleContainer(activeUserId)
     }
 }
 
