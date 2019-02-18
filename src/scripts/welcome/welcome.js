@@ -9,7 +9,6 @@ import newsEventListener from "../newsFeed/newsEventListenerHandler"
 const welcome = {
     welcome: (form) => {
         const activeUser = sessionStorage.getItem("activeUser")
-        console.log(activeUser)
         if (activeUser === null) {
             printToDOM(form, "#welcomeForm")
         } else {
