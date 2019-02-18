@@ -14,6 +14,7 @@ import newsEventListener from "./newsFeed/newsEventListenerHandler"
 navbarBuilder()
 welcome.welcome(welcomeForms.loginForm)
 welcomeEventHandlers.all()
-
+newsEventListener.inputContainer()
+newsEventListener.articleContainer()
 // eventApiManager.getEvents()
     // .then(eventsData => printEvents(eventsData))
