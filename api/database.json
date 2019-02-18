@@ -186,15 +186,5 @@
       "timestamp": 102875
     }
   ],
-<<<<<<< HEAD
-  "friends": [
-    {
-      "id": 1,
-      "userId": 1,
-      "friendId": 2
-    }
-  ]
-=======
   "friends": []
->>>>>>> master
 }
