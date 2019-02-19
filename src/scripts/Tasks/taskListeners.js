@@ -35,7 +35,9 @@ addTask: () => {
     }
     console.log(saveTask)
     APIfunctions.saveTaskInput(saveTask)
-    .then(APIfunctions.getTasks)
+    .then = () => {
+    (taskToDOM)
+    }
   })
 }
 }
