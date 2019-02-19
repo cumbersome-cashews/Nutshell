@@ -8,7 +8,7 @@ import navbarBuilder from "./navbar/navbarHTML";
 import newsEventListener from "./newsFeed/newsEventListenerHandler"
 import taskListeners from "./Tasks/taskListeners"
 
-navbarBuilder()
+navbarBuilder("")
 welcome.welcome(welcomeForms.loginForm)
 welcomeEventHandlers.all()
 newsEventListener.inputContainer()
