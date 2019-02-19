@@ -1,17 +1,17 @@
 import eventApi from "./eventApiManager";
 import eventsAsHTML from "./eventsAsHTML";
 import printEvents from "./eventPrint";
+import eventsForm from "./eventsForm";
 
 //on login, GET user events
 //create HTML
 //print to DOM
 
 const showEvents = (activeUserId) => {
+    document.querySelector("#eventsForm").innerHTML = eventsForm.formButton
     eventApi.getEvents(activeUserId)
         .then(eventData => {
-            console.log(eventData)
             const html = eventsAsHTML(eventData)
-            console.log(html)
             printEvents(html, "#eventsList")
         })
 }

@@ -8,7 +8,7 @@ const eventApi = {
             .then(res => res.json())
     },
     postEvent: (eventObject) => {
-        return fetch(`http://localhost:8088/events`, {
+        return fetch("http://localhost:8088/events", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
