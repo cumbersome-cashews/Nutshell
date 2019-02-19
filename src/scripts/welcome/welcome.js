@@ -102,7 +102,7 @@ const welcome = {
                 // navbarBuilder(activeUserId)
                 newsHTMLFactory(activeUserId)
                 document.getElementById("taskList-input").innerHTML = taskForm
-                taskToDOM()
+                taskToDOM(activeUserId)
             })
     }
 }
