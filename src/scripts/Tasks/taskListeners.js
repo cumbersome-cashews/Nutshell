@@ -7,7 +7,6 @@ let taskListeners = {
     completedButton.addEventListener("click", (e) => {
       if (e.target.id.startsWith("completedButton")) {
         const activeUser = sessionStorage.getItem("activeUser")
-        console.log("You clicked completed task")
         const idToGetOneTask = e.target.id.split("--")[1]
         //get the id of what was clicked
         //figure out which card has the same id and remove it
@@ -27,8 +26,6 @@ let taskListeners = {
     const addTaskButton = document.getElementById("taskList-input")
     addTaskButton.addEventListener("click", (e) => {
       if (e.target.id.startsWith("addTaskButton")) {
-        console.log("You clicked add task")
-        console.log(e)
         if (document.getElementById("task_name").checkValidity() && document.getElementById("task_description")) {
           const activeUser = sessionStorage.getItem("activeUser")
           let saveTask = {
@@ -38,7 +35,6 @@ let taskListeners = {
             when: document.getElementById("completion_date").value,
             completed: false
           }
-          console.log(saveTask)
           APIfunctions.saveTaskInput(activeUser, saveTask)
             .then(() => {
               (taskToDOM(activeUser))
@@ -52,7 +48,6 @@ let taskListeners = {
   //   const editButton = document.getElementById("taskList-items")
   //   editButton.addEventListener("click", (e) => {
   //     if (e.target.id.startsWith("editButton")) {
-  //       console.log("You clicked edit task")
   //       const idToGetOneTask = e.target.id.split("--")[1]
   //       APIfunctions.getSingleTask(idToGetOneTask)
   //       .then(task => {
