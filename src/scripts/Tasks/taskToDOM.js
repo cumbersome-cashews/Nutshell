@@ -1,8 +1,8 @@
 import APIfunctions from "./api"
 
-let taskToDOM = () => {
+let taskToDOM = (activeUser) => {
  document.getElementById("taskList-items").innerHTML = ""
- APIfunctions.getTasks()
+ APIfunctions.getTasks(activeUser)
  .then(parsedTasks => {
    parsedTasks.forEach(task => {
         if (task.completed === false) {
