@@ -1,9 +1,10 @@
 const $ = document.querySelector.bind(document)
 
-const navbarHTML =
+const navbarHTML = (username) =>
 `
 <nav class="navbar navbar-dark bg-dark">
   <a class="navbar-brand" href="#">Cumbersome Cashews</a>
+  <li class="text-muted mr-auto">Welcome${username}!</li>
   <button type="button" id="logoutButton" class="btn btn-dark ml-auto">Logout</button>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
@@ -31,8 +32,8 @@ const navbarHTML =
 </nav>
 `
 
-const navbarBuilder = () => {
-$("#navbarContainer").innerHTML = navbarHTML
+const navbarBuilder = (username) => {
+$("#navbarContainer").innerHTML = navbarHTML(username)
 }
 
 export default navbarBuilder

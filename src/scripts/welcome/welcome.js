@@ -6,6 +6,7 @@ import welcomeApiManager from "./welcomeApiManager";
 import newsHTMLFactory from "../newsFeed/newsHTMLFactory"
 import taskForm from "../Tasks/taskForm"
 import taskToDOM from "../Tasks/taskToDOM";
+import navbarBuilder from "../navbar/navbarHTML"
 
 const welcome = {
     welcome: (form) => {
@@ -93,12 +94,16 @@ const welcome = {
         document.querySelector("#welcomeForm").innerHTML = ""
         fetch(`http://localhost:8088/users/${activeUserId}`)
             .then(r => r.json())
-            .then(data => console.log(data))
-        //activate each components "show on DOM" function
-        //activate News Feed section
-        newsHTMLFactory(activeUserId)
-        document.getElementById("taskList-input").innerHTML = taskForm
-        taskToDOM()
+            .then(data => {
+                const username = ` ${data.username}`
+                navbarBuilder(username)
+                //activate each components "show on DOM" function
+                //activate News Feed section
+                // navbarBuilder(activeUserId)
+                newsHTMLFactory(activeUserId)
+                document.getElementById("taskList-input").innerHTML = taskForm
+                taskToDOM()
+            })
     }
 }
 
