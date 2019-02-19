@@ -1,4 +1,4 @@
-const eventApiManager = {
+const eventApi = {
     getEvents: (userId) => {
         return fetch(`http://localhost:8088/events?userId=${userId}&_expand=user`)
             .then(res => res.json())
@@ -26,10 +26,10 @@ const eventApiManager = {
         }).then(res => res.json())
     },
     deleteEvent: (eventId) => {
-        return fetch(`http://localhost:8088/events/eventId`, {
+        return fetch(`http://localhost:8088/events/${eventId}`, {
             method: "DELETE"
-        }).then(res => console.log(res))
+        })
     }
 }
 
-export default eventApiManager
+export default eventApi

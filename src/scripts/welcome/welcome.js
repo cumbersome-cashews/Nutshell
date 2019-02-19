@@ -1,9 +1,9 @@
-// import welcomeEventHandlers from "./welcomeEventHandler";
 import printToDOM from "./printToDOM";
 import welcomeForms from "./welcomeForms";
 import welcomeApiManager from "./welcomeApiManager";
 //import News Section modules
 import newsHTMLFactory from "../newsFeed/newsHTMLFactory"
+import showEvents from "../events/events";
 
 const welcome = {
     welcome: (form) => {
@@ -75,25 +75,22 @@ const welcome = {
                 if (userToCheck === undefined) {
                     alert("Username or password incorrect")
                     welcome.welcome(welcomeForms.loginForm)
+
                 } else if (userToCheck.password === loginPassword) {
+                    //if verified, capture userId in sessionStorage
                     sessionStorage.setItem("activeUser", userToCheck.id)
+                    //go to dashboard
                     welcome.showDashboard(userToCheck.id)
                 } else {
                     alert("Username or password incorrect")
                     welcome.welcome(welcomeForms.loginForm)
                 }
             })
-        //if verified, capture userId in sessionStorage
-        //go to dashboard
     },
     showDashboard: (activeUserId) => {
-        console.log(activeUserId)
-        document.querySelector("#welcomeForm").innerHTML = ""
-        fetch(`http://localhost:8088/users/${activeUserId}`)
-            .then(r => r.json())
-            .then(data => console.log(data))
         //activate each components "show on DOM" function
         //activate News Feed section
+        showEvents(activeUserId)
         newsHTMLFactory(activeUserId)
     }
 }
