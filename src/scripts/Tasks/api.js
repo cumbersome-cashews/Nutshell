@@ -1,11 +1,11 @@
 const APIfunctions = {
-  getTasks(){
-   return fetch("http://localhost:8088/tasks")
+  getTasks(userId){
+   return fetch(`http://localhost:8088/tasks?userId=${userId}`)
     .then(tasks => tasks.json())
   },
 
-  saveTaskInput(saveTask){
-    return fetch("http://localhost:8088/tasks", {
+  saveTaskInput(userId, saveTask){
+    return fetch(`http://localhost:8088/tasks?userId=${userId}`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json"

@@ -1,6 +1,7 @@
 import welcome from "./welcome";
 import welcomeForms from "./welcomeForms";
 import clearAll from "./clearAll";
+import navbarBuilder from "../navbar/navbarHTML";
 
 const welcomeEventHandlers = {
     all: () => {
@@ -44,6 +45,7 @@ const welcomeEventHandlers = {
             if (event.target.id === "logoutButton") {
                 sessionStorage.clear()
                 clearAll()
+                navbarBuilder("")
                 welcome.welcome(welcomeForms.loginForm)
             }
         })
