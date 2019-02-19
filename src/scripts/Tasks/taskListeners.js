@@ -13,9 +13,7 @@ let taskListeners = {
         APIfunctions.getSingleTask(idToGetOneTask)
           .then(taskObject => {
             taskObject.completed = true
-            APIfunctions.editTask(taskObject.id, taskObject)
-          })
-          .then(taskToDOM)
+            APIfunctions.editTask(taskObject.id, taskObject).then(taskToDOM)          })
       }
     })
   },
@@ -27,8 +25,9 @@ let taskListeners = {
         console.log("You clicked add task")
         console.log(e)
         if (document.getElementById("task_name").checkValidity() && document.getElementById("task_description")) {
-
+          const activeUser = sessionStorage.getItem("activeUser")
           let saveTask = {
+            userId: activeUser,
             name: document.getElementById("task_name").value,
             description: document.getElementById("task_description").value,
             when: document.getElementById("completion_date").value,
