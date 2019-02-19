@@ -1,8 +1,8 @@
 import APIfunctions from "./api"
 
-let taskToDOM = () => {
+let taskToDOM = (activeUser) => {
  document.getElementById("taskList-items").innerHTML = ""
- APIfunctions.getTasks()
+ APIfunctions.getTasks(activeUser)
  .then(parsedTasks => {
    parsedTasks.forEach(task => {
         if (task.completed === false) {
@@ -12,6 +12,7 @@ let taskToDOM = () => {
         <p> ${task.description}</p>
         <p> ${task.when}</p>
         <button id="completedButton--${task.id}">Completed Task</button>
+        <button id="editButton--${task.id}">Edit Task</button>
         </div>`
       }});
     })

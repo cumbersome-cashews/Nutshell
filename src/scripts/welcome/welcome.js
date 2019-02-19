@@ -98,7 +98,7 @@ const welcome = {
         //activate News Feed section
         newsHTMLFactory(activeUserId)
         document.getElementById("taskList-input").innerHTML = taskForm
-        taskToDOM()
+        taskToDOM(activeUserId)
     }
 }
 
