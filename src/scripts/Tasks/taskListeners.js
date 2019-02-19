@@ -15,6 +15,7 @@ let taskListeners = {
             taskObject.completed = true
             APIfunctions.editTask(taskObject.id, taskObject)
           })
+          .then(taskToDOM)
       }
     })
   },
@@ -24,7 +25,6 @@ let taskListeners = {
     addTaskButton.addEventListener("click", (e) => {
       if (e.target.id.startsWith("addTaskButton")) {
         console.log("You clicked add task")
-        e.preventDefault()
         console.log(e)
         if (document.getElementById("task_name").checkValidity() && document.getElementById("task_description")) {
 
