@@ -4,8 +4,8 @@ import welcomeForms from "./welcomeForms";
 import welcomeApiManager from "./welcomeApiManager";
 //import News Section modules
 import newsHTMLFactory from "../newsFeed/newsHTMLFactory"
-import taskToDOM from "./Tasks/taskToDOM"
-import taskForm from "./Tasks/taskForm"
+import taskForm from "../Tasks/taskForm"
+import taskToDOM from "../Tasks/taskToDOM";
 
 const welcome = {
     welcome: (form) => {
@@ -97,7 +97,8 @@ const welcome = {
         //activate each components "show on DOM" function
         //activate News Feed section
         newsHTMLFactory(activeUserId)
-        taskToDOM(taskForm)
+        document.getElementById("taskList-input").innerHTML = taskForm
+        taskToDOM()
     }
 }
 
