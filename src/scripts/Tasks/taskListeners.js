@@ -14,7 +14,10 @@ let taskListeners = {
         APIfunctions.getSingleTask(idToGetOneTask)
           .then(taskObject => {
             taskObject.completed = true
-            APIfunctions.editTask(taskObject.id, taskObject).then(taskToDOM(activeUser))
+            APIfunctions.editTask(taskObject.id, taskObject)
+            .then(() => {
+              taskToDOM(activeUser)
+            })
           })
       }
     })
@@ -23,7 +26,7 @@ let taskListeners = {
   addTask: () => {
     const addTaskButton = document.getElementById("taskList-input")
     addTaskButton.addEventListener("click", (e) => {
-      if (e.target.id.startsWith("addTaskButton")) {
+      if (e.target.id.startsWith("addTaskButton"&& event.target.textContent === "Add Task")) {
         console.log("You clicked add task")
         console.log(e)
         if (document.getElementById("task_name").checkValidity() && document.getElementById("task_description")) {
@@ -43,7 +46,23 @@ let taskListeners = {
         }
       }
     })
-  }
+  },
+
+  editTaskName: () => {
+    const editButton = document.getElementById("taskList-items")
+    editButton.addEventListener("click", (e) => {
+      if (e.target.id.startsWith("editButton")) {
+        console.log("You clicked edit task")
+        const idToGetOneTask = e.target.id.split("--")[1]
+        APIfunctions.getSingleTask(idToGetOneTask)
+        .then(task => {
+          document.getElementById("task_name").value = task.name
+          document.getElementById("addTaskButton").textContent = "Update Task"
+        })
+
+      }
+    })
+  },
 }
 
 export default taskListeners

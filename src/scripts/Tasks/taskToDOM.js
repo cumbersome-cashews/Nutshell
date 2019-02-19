@@ -12,6 +12,7 @@ let taskToDOM = (activeUser) => {
         <p> ${task.description}</p>
         <p> ${task.when}</p>
         <button id="completedButton--${task.id}">Completed Task</button>
+        <button id="editButton--${task.id}">Edit Task</button>
         </div>`
       }});
     })
