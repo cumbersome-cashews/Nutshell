@@ -10,6 +10,7 @@ const clearAll = () => {
     clearChildren($("#events-container"))
     clearChildren($("#newsFeed-input-container"))
     clearChildren($("#newsFeed-article-container"))
+    clearChildren($("#message_article"))
 }
 
 export default clearAll

@@ -1,6 +1,9 @@
 import entryManager from "./entryManager"
 import createHTML from "./createHTML"
 import addToDOM from "./addToDOM"
+import scrollToBottom from "./scroll";
+import isFriend from "../friends/isFriend";
+import addFriendClass from "../friends/addFriendClass";
 const onLoad = {
   outputAllMessages: () => {
     entryManager.getMessages()
@@ -9,9 +12,36 @@ const onLoad = {
         messages.forEach(message => {
           const html = createHTML.createObjectHTML(message)
           addToDOM(html)
+
         })
-        console.log(sessionStorage.activeUser)
+        scrollToBottom()
       })
+  },
+  loadInitialHTML: () => {
+    const friendContainer = document.createElement("section")
+    const outputContainer = document.createElement("section")
+    outputContainer.setAttribute("id", "message_output_container")
+    document.querySelector("#message_article").appendChild(outputContainer)
+    friendContainer.setAttribute("id", "add_friend_container")
+    document.querySelector("#message_article").appendChild(friendContainer)
+    const inputContainer = document.createElement("section")
+    inputContainer.setAttribute("id", "message_input_container")
+    document.querySelector("body").appendChild(inputContainer)
+    const messageInput = document.createElement("input")
+    messageInput.setAttribute("id", "message_input")
+    inputContainer.appendChild(messageInput)
+    const inputButton = document.createElement("button")
+    inputButton.setAttribute("id", "message_input_button")
+    inputButton.textContent = "Post message"
+    inputContainer.appendChild(inputButton)
+    const addFriendButton = document.createElement("button")
+    addFriendButton.setAttribute("id", "add_friend_button")
+    addFriendButton.textContent = "Add a friend"
+    document.querySelector("#message_article").appendChild(inputContainer)
+    document.querySelector("#add_friend_container").appendChild(addFriendButton)
   }
+
 }
 export default onLoad
+
+

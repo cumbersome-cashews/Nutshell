@@ -6,14 +6,15 @@ const findFriendIds = () => {
       const activeUserInt = parseInt(sessionStorage.activeUser)
       const filtered = friends.filter(element => element.userId === activeUserInt || element.friendId === activeUserInt)
       filtered.forEach(element => {
-        const userIds = (Object.values(element))
-        const friendIds = userIds.filter(id => id !== activeUserInt)
+        const userAndFriendIds = []
+        userAndFriendIds.push(element.userId)
+        userAndFriendIds.push(element.friendId)
+        const friendIds = userAndFriendIds.filter(id => id !== activeUserInt)
         friendArray.push(...friendIds)
       })
       const uniqueFriendArray = [...new Set(friendArray)]
-      console.log(uniqueFriendArray)
+      //array of unique friends of the active user
       return uniqueFriendArray
     })
 }
-
 export default findFriendIds

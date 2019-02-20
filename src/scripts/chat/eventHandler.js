@@ -8,8 +8,8 @@ import onLoad from "./onLoad.js";
 import createFriendObject from "../friends/createFriendObject.js"
 import friendsEntryManager from "../friends/entryManager"
 import findFriendIds from "../friends/findFriendIds.js"
+import isFriend from "../friends/isFriend.js";
 
-const messageOutputContainer = document.querySelector("#message_output_container")
 const userId = parseInt(sessionStorage.activeUser)
 const eventHandler = {
   messageListener: () => {
@@ -19,23 +19,22 @@ const eventHandler = {
       let time = new Date().toLocaleString()
       const newObject = createMessageObject(userId, messageText, time)
       entryManager.postMessage(newObject)
-        .then(obj => {
-          const HTML = createHTML.createObjectHTML(obj)
-          addToDOM(HTML)
+        .then(() => {
+          clearChildren(messageOutputContainer)
+          onLoad.outputAllMessages()
+        })
+        .then(() => {
           scrollToBottom()
-        }
-        )
+        })
     })
   },
-
   nameFriendListener: () => {
-    messageOutputContainer.addEventListener("click", (event) => {
+    document.querySelector("#message_output_container").addEventListener("click", (event) => {
       const span = event.target
       const friendUserId = parseInt(span.className.split("--")[1])
       findFriendIds().then((arrayOfFriends) => {
         const isAlreadyFriends = arrayOfFriends.includes(friendUserId)
-        console.log(isAlreadyFriends)
-        if (span.className.startsWith("user") && friendUserId !== userId && isAlreadyFriends === "false") {
+        if ((span.className.startsWith("user") && friendUserId !== userId && isAlreadyFriends === false)) {
           if (window.confirm(`Do you want to add ${event.target.textContent} as a friend?`)) {
             const newFriendship = createFriendObject(userId, friendUserId)
             friendsEntryManager.addFriendship(newFriendship)
@@ -49,24 +48,31 @@ const eventHandler = {
     const addFriendButton = document.querySelector("#add_friend_button")
     addFriendButton.addEventListener("click", () => {
       const friendSearchInput = document.querySelector("#friend_search_input")
+      //if friend input exists
       if (friendSearchInput) {
         const searchedName = friendSearchInput.value
-        findFriendIds().then((arrayOfFriends) => {
-          friendsEntryManager.getUsers()
-            .then((users) => {
-              users.forEach(user => {
-                if (user.first_name.toUpperCase() === searchedName.toUpperCase()
-                  || user.last_name.toUpperCase() === searchedName.toUpperCase()
-                  || `${user.first_name} ${user.last_name}`.toUpperCase() === searchedName.toUpperCase()) {
-                  console.log(`${user.last_name} ${user.first_name}`.toUpperCase())
-                  if (window.confirm(`Do you want to add ${user.first_name} ${user.last_name} as a friend?`)) {
-                    const newFriendship = createFriendObject(userId, user.id)
-                    friendsEntryManager.addFriendship(newFriendship)
+        friendsEntryManager.getUsers()
+          .then((users) => {
+            users.forEach(user => {
+              isFriend(user.id).then((boolean) => {
+                // for each user, if they are not already your friend
+                if (boolean === false) {
+                  if (user.first_name.toUpperCase() === searchedName.toUpperCase()
+                    || user.last_name.toUpperCase() === searchedName.toUpperCase()
+                    || `${user.first_name} ${user.last_name}`.toUpperCase() === searchedName.toUpperCase()) {
+                    //if the searched name is equal to the user's name
+                    console.log(`${user.first_name} ${user.last_name}`.toUpperCase())
+                    const name = `${user.first_name} ${user.last_name}`
+                    if (window.confirm(`Do you want to add ${user.first_name} ${user.last_name} as a friend?`)) {
+                      const newFriendship = createFriendObject(userId, user.id)
+                      friendsEntryManager.addFriendship(newFriendship)
+                    }
                   }
                 }
               })
             })
-        })
+          })
+
       } else {
         addFriendButton.textContent = "Search"
         const friendSearchInput = document.createElement("input")
@@ -77,7 +83,7 @@ const eventHandler = {
     })
   },
   editListener: () => {
-    messageOutputContainer.addEventListener("click", (event) => {
+    document.querySelector("#message_output_container").addEventListener("click", (event) => {
       const id = event.target.id.split("--")[1]
       const clickedDiv = document.getElementById(id)
       if (event.target.id.startsWith("edit_button")) {

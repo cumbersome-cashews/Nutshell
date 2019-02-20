@@ -1,7 +1,15 @@
+import isFriend from "../friends/isFriend";
+
 const createHTML = {
   createObjectHTML: (message) => {
     const messageDiv = document.createElement("div")
     messageDiv.setAttribute("id", `${message.id}`)
+    messageDiv.setAttribute("class", `${message.user.id}`)
+    isFriend(message.user.id).then((boolean) => {
+      if (boolean) {
+        messageDiv.setAttribute("class", "friend")
+      }
+    })
     const name = document.createElement("span")
     name.setAttribute("class", `user--${message.user.id}`)
     const nameT = document.createTextNode(`${message.user.first_name} ${message.user.last_name}`)
@@ -11,7 +19,6 @@ const createHTML = {
     const textT = document.createTextNode(`: ${message.content}`)
     text.appendChild(textT)
     messageDiv.appendChild(text)
-
     const time = document.createElement("span")
     time.setAttribute("class", "time")
     const timeT = document.createTextNode(`${message.messageDate}`)
@@ -29,7 +36,7 @@ const createHTML = {
     const newInput = document.createElement("input")
     newInput.setAttribute("id", `input--${idNumber}`)
     newInput.value = value
-    const width = length * 7.8
+    const width = length * 8.5
     newInput.style.width = `${width}px`
     parent.appendChild(newInput)
   },

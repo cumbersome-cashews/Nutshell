@@ -35,8 +35,3 @@ const entryManager = {
   },
 }
 export default entryManager
-
-// window.setInterval(() => {
-//   const chatOutput = document.querySelector("#message_output_container")
-//   chatOutput.scrollTop = chatOutput.scrollHeight
-// }, 10000)

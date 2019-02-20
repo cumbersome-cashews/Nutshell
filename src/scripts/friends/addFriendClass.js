@@ -1,6 +1,6 @@
-const addFriendClass = () => {
-  const output = document.getElementById("message_output_container")
-  document.getElementsByClassName
+const addFriendClass = (element) => {
+  element.setAttribute("class", "friend")
+  return element
 }
 
 
