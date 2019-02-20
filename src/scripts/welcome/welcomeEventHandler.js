@@ -46,6 +46,7 @@ const welcomeEventHandlers = {
                 sessionStorage.clear()
                 clearAll()
                 navbarBuilder("")
+                document.querySelector("#logoutButton").setAttribute("hidden", true)
                 welcome.welcome(welcomeForms.loginForm)
             }
         })
