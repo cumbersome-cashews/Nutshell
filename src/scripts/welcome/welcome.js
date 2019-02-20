@@ -9,6 +9,9 @@ import newsEventListener from "../newsFeed/newsEventListenerHandler"
 import onLoad from "../chat/onLoad"
 import eventHandler from "../chat/eventHandler"
 import findFriendIds from "../friends/findFriendIds"
+import taskForm from "../Tasks/taskForm"
+import taskToDOM from "../Tasks/taskToDOM";
+import navbarBuilder from "../navbar/navbarHTML"
 
 const welcome = {
     welcome: (form) => {
@@ -96,21 +99,26 @@ const welcome = {
         document.querySelector("#welcomeForm").innerHTML = ""
         fetch(`http://localhost:8088/users/${activeUserId}`)
             .then(r => r.json())
-            .then(data => console.log(data))
-        //activate each components "show on DOM" function
-        //activate News Feed section
-        newsHTMLFactory(activeUserId)
-        newsEventListener.inputContainer(activeUserId)
-        newsEventListener.articleContainer(activeUserId)
-        onLoad.loadInitialHTML()
-        findFriendIds()
-        onLoad.outputAllMessages()
-        eventHandler.editListener()
-        eventHandler.messageListener()
-        eventHandler.nameFriendListener()
-        eventHandler.addFriendListener()
-        onLoad.loadUserFriendships()
-
+            .then(data => {
+                const username = ` ${data.username}`
+                navbarBuilder(username)
+                //activate each components "show on DOM" function
+                //activate News Feed section
+                // navbarBuilder(activeUserId)
+                newsHTMLFactory(activeUserId)
+                document.getElementById("taskList-input").innerHTML = taskForm
+                taskToDOM(activeUserId)
+                newsEventListener.inputContainer(activeUserId)
+                newsEventListener.articleContainer(activeUserId)
+                onLoad.loadInitialHTML()
+                findFriendIds()
+                onLoad.outputAllMessages()
+                eventHandler.editListener()
+                eventHandler.messageListener()
+                eventHandler.nameFriendListener()
+                eventHandler.addFriendListener()
+                onLoad.loadUserFriendships()
+            })
 
 
     }
