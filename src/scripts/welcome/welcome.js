@@ -94,7 +94,6 @@ const welcome = {
         document.querySelector("#welcomeForm").innerHTML = ""
         fetch(`http://localhost:8088/users/${activeUserId}`)
             .then(r => r.json())
-<<<<<<< HEAD
             .then(data => {
                 const username = ` ${data.username}`
                 navbarBuilder(username)
@@ -103,16 +102,8 @@ const welcome = {
                 // navbarBuilder(activeUserId)
                 newsHTMLFactory(activeUserId)
                 document.getElementById("taskList-input").innerHTML = taskForm
-                taskToDOM()
+                taskToDOM(activeUserId)
             })
-=======
-            .then(data => console.log(data))
-        //activate each components "show on DOM" function
-        //activate News Feed section
-        newsHTMLFactory(activeUserId)
-        document.getElementById("taskList-input").innerHTML = taskForm
-        taskToDOM(activeUserId)
->>>>>>> master
     }
 }
 
