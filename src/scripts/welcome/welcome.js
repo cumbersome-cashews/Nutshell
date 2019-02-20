@@ -108,8 +108,6 @@ const welcome = {
                 newsHTMLFactory(activeUserId)
                 document.getElementById("taskList-input").innerHTML = taskForm
                 taskToDOM(activeUserId)
-                newsEventListener.inputContainer(activeUserId)
-                newsEventListener.articleContainer(activeUserId)
                 onLoad.loadInitialHTML()
                 findFriendIds()
                 onLoad.outputAllMessages()

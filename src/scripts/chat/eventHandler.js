@@ -1,7 +1,6 @@
 import createMessageObject from "./createMessageObject.js"
 import entryManager from "./entryManager"
 import createHTML from "./createHTML"
-import addToDOM from "./addToDOM"
 import scrollToBottom from "./scroll.js";
 import clearChildren from "./clear.js";
 import onLoad from "./onLoad.js";
@@ -10,19 +9,19 @@ import friendsEntryManager from "../friends/friendsEntryManager"
 import findFriendIds from "../friends/findFriendIds.js"
 import isFriend from "../friends/isFriend.js";
 
-const userId = parseInt(sessionStorage.activeUser)
 const eventHandler = {
   messageListener: () => {
     const chatInput = document.querySelector("#message_input")
     document.querySelector("#message_input_button").addEventListener("click", () => {
       let messageText = chatInput.value
       let time = new Date().toLocaleString()
-      const newObject = createMessageObject(userId, messageText, time)
+      const newObject = createMessageObject(parseInt(sessionStorage.activeUser), messageText, time)
       entryManager.postMessage(newObject)
         .then(() => {
           const messageOutputContainer = document.querySelector("#message_output_container")
           clearChildren(messageOutputContainer)
           onLoad.outputAllMessages()
+          chatInput.value = ""
         })
         .then(() => {
           scrollToBottom()
@@ -34,11 +33,14 @@ const eventHandler = {
       const span = event.target
       const friendUserId = parseInt(span.className.split("--")[1])
       findFriendIds().then((arrayOfFriends) => {
+
         const isAlreadyFriends = arrayOfFriends.includes(friendUserId)
-        if ((span.className.startsWith("user") && friendUserId !== userId && isAlreadyFriends === false)) {
+        if ((span.className.startsWith("user") && friendUserId !== parseInt(sessionStorage.activeUser) && isAlreadyFriends === false)) {
           if (window.confirm(`Do you want to add ${event.target.textContent} as a friend?`)) {
-            const newFriendship = createFriendObject(userId, friendUserId)
+            const newFriendship = createFriendObject.createFriendship(parseInt(sessionStorage.activeUser), friendUserId)
             friendsEntryManager.addFriendship(newFriendship)
+            clearChildren(document.querySelector("#message_output_container"))
+            onLoad.outputAllMessages()
           }
         }
       })
@@ -65,8 +67,10 @@ const eventHandler = {
                     console.log(`${user.first_name} ${user.last_name}`.toUpperCase())
                     const name = `${user.first_name} ${user.last_name}`
                     if (window.confirm(`Do you want to add ${user.first_name} ${user.last_name} as a friend?`)) {
-                      const newFriendship = createFriendObject(userId, user.id)
+                      const newFriendship = createFriendObject.createFriendship(parseInt(sessionStorage.activeUser), user.id)
                       friendsEntryManager.addFriendship(newFriendship)
+                      clearChildren(document.querySelector("#message_output_container"))
+                      onLoad.outputAllMessages()
                     }
                   }
                 }
