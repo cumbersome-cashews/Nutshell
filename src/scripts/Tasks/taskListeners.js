@@ -1,6 +1,5 @@
 import APIfunctions from "./api";
 import taskToDOM from "./taskToDOM";
-import welcome from "../welcome/welcome"
 
 let taskListeners = {
   completedTask: () => {
@@ -9,8 +8,6 @@ let taskListeners = {
       if (e.target.id.startsWith("completedButton")) {
         const activeUser = sessionStorage.getItem("activeUser")
         const idToGetOneTask = e.target.id.split("--")[1]
-        //get the id of what was clicked
-        //figure out which card has the same id and remove it
         APIfunctions.getSingleTask(idToGetOneTask)
           .then(taskObject => {
             taskObject.completed = true
@@ -24,9 +21,9 @@ let taskListeners = {
   },
 
   addTask: () => {
-    const addTaskButton = document.getElementById("addTaskButton")
+    const addTaskButton = document.getElementById("taskList-input")
     addTaskButton.addEventListener("click", (e) => {
-        if (document.getElementById("task_name").checkValidity()) {
+        if (e.target.textContent === "Add Task" && document.getElementById("task_name").value !== "" && document.getElementById("completion_date").value !== "" ) {
           const activeUser = sessionStorage.getItem("activeUser")
           let saveTask = {
             userId: parseInt(activeUser),
@@ -39,36 +36,41 @@ let taskListeners = {
               (taskToDOM(activeUser))
             })
         }
+        else if(e.target.textContent === "Update Task" && document.getElementById("task_name").value !== "" && document.getElementById("completion_date").value !== "" ) {
+          const activeUser = sessionStorage.getItem("activeUser")
+          let id = document.getElementById("tasksHidden").value
+          let saveTask = {
+            userId: parseInt(activeUser),
+            name: document.getElementById("task_name").value,
+            when: document.getElementById("completion_date").value,
+            completed: false
+          }
+          APIfunctions.editTask(id, saveTask)
+          .then( () => {
+            const activeUser = sessionStorage.getItem("activeUser")
+            document.getElementById("tasksHidden").value = ""
+            taskToDOM(activeUser)
+          })
+          document.getElementById("addTaskButton").textContent = "Add Task"
+
+        }
     })
   },
 
-  showEditTaskForm: (task) => {
-    document.getElementById("task_name").value = task.name
-    const changeButtonToEdit = document.getElementById("addTaskButton")
-    changeButtonToEdit.textContent = "Update Task"
-    changeButtonToEdit.addEventListener("click", () => {
-      APIfunctions.editTask(task.id, Object.assign(task,{
-        name:  document.getElementById("task_name").value
-      }))
-      .then( () => {
-       const activeUser = sessionStorage.getItem("activeUser")
-       welcome.showDashboard(activeUser)
-
-      })
+  showEditTaskForm: () => {
+    const changeButtonToEdit = document.getElementById("taskList-items")
+    changeButtonToEdit.addEventListener("click", (e) => {
+      if(e.target.id.startsWith("editButton") ){
+        const idToGetOneTask = e.target.id.split("--")[1]
+        APIfunctions.getSingleTask(idToGetOneTask)
+          .then(task => {
+            document.getElementById("tasksHidden").value = idToGetOneTask
+            document.getElementById("addTaskButton").textContent = "Update Task"
+            document.getElementById("task_name").value = task.name
+            document.getElementById("completion_date").value = task.date
+          })
+      }
     })
-    //   const editButton = document.getElementById("taskList-items")
-    //   editButton.addEventListener("click", (e) => {
-    //     if (e.target.id.startsWith("editButton")) {
-    //       const idToGetOneTask = e.target.id.split("--")[1]
-    //       APIfunctions.getSingleTask(idToGetOneTask)
-    //       .then(task => {
-    //         document.getElementById("task_name").value = task.name
-    //         document.getElementById("addTaskButton").textContent = "Update Task"
-    //       })
-
-    //     }
-    //   })
-    // }
   }
 }
 export default taskListeners
