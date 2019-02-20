@@ -1,7 +1,7 @@
 const $ = document.querySelector.bind(document)
 
 const navbarHTML = (username) =>
-`
+  `
 <nav class="navbar navbar-dark bg-dark">
   <a class="navbar-brand" href="#">Cumbersome Cashews</a>
   <li class="text-muted font-weight-lighter mr-auto">Welcome${username}!</li>
@@ -16,13 +16,13 @@ const navbarHTML = (username) =>
         <a class="nav-link" href="#">Home<span class="sr-only">(current)</span></a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">Tasks</a>
+        <a class="nav-link" href="#taskList-input">Tasks</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">Chat</a>
+        <a class="nav-link" href="#message_article">Chat</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#events-container">Events</a>
+        <a class="nav-link" href="#eventsForm">Events</a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="#newsFeed-input-container">News</a>
@@ -33,7 +33,7 @@ const navbarHTML = (username) =>
 `
 
 const navbarBuilder = (username) => {
-$("#navbarContainer").innerHTML = navbarHTML(username)
+  $("#navbarContainer").innerHTML = navbarHTML(username)
 }
 
 export default navbarBuilder

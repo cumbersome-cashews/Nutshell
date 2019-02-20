@@ -35,17 +35,21 @@ const newsEventListener = {
                         })
                 } else if (title === "" && summary === "" && url === "") {
                     alert("Please fill all forms before posting")
+                    $("#newsTitleInput").focus()
                     $("#newsTitleInput").className = "redErrorBorder"
                     $("#newsSynopsisInput").className = "redErrorBorder"
                     $("#newsURLInput").className = "redErrorBorder"
                 } else if (title === "") {
                     alert("Please add a title")
+                    $("#newsTitleInput").focus()
                     $("#newsTitleInput").className = "redErrorBorder"
                 } else if (summary === "") {
                     alert("Please add a summary")
+                    $("#newsSynopsisInput").focus()
                     $("#newsSynopsisInput").className = "redErrorBorder"
                 } else if (url === "") {
                     alert("Please add a url")
+                    $("#newsURLInput").focus()
                     $("#newsURLInput").className = "redErrorBorder"
                 }
                 //edit news article information button
@@ -92,9 +96,11 @@ const newsEventListener = {
                 //grab that object from API and prefill form
                 apiHandler.getOneArticle(parseInt(articleId))
                     .then((article) => {
+                        $("#newsInputContainer").scrollIntoView(true)
                         $("#newsTitleInput").value = article.title
                         $("#newsSynopsisInput").value = article.summary
                         $("#newsURLInput").value = article.url
+                        $("#newsTitleInput").focus()
                     })
                 //remove card from database
             } else if (buttonId.includes("removeArticle--")) {

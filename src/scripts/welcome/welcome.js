@@ -1,7 +1,6 @@
 import printToDOM from "./printToDOM";
 import welcomeForms from "./welcomeForms";
 import welcomeApiManager from "./welcomeApiManager";
-//import News Section modules
 import newsHTMLFactory from "../newsFeed/newsHTMLFactory"
 import showEvents from "../events/events";
 import taskForm from "../Tasks/taskForm"
@@ -98,14 +97,21 @@ const welcome = {
             .then(data => {
                 const username = ` ${data.username}`
                 navbarBuilder(username)
-                //activate each components "show on DOM" function
-                //activate News Feed section
-                // navbarBuilder(activeUserId)
                 newsHTMLFactory(activeUserId)
                 document.getElementById("taskList-input").innerHTML = taskForm
                 taskToDOM(activeUserId)
                 showEvents(activeUserId)
+                onLoad.loadInitialHTML()
+                findFriendIds()
+                onLoad.outputAllMessages()
+                eventHandler.editListener()
+                eventHandler.messageListener()
+                eventHandler.nameFriendListener()
+                eventHandler.addFriendListener()
+                onLoad.loadUserFriendships()
             })
+
+
     }
 }
 
