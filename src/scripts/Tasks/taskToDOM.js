@@ -1,22 +1,23 @@
 import APIfunctions from "./api"
-import taskListeners from "./taskListeners"
 
-let taskToDOM = (html) => {
- document.getElementById("taskList").innerHTML += html
-  APIfunctions.getTasks()
+let taskToDOM = (activeUser) => {
+  const taskItems = document.getElementById("taskList-items")
+  taskItems.innerHTML = ""
+  APIfunctions.getTasks(activeUser)
     .then(parsedTasks => {
+      console.log(parsedTasks)
       parsedTasks.forEach(task => {
         if (task.completed === false) {
-        document.getElementById("taskList").innerHTML += `
+          console.log(task)
+          taskItems.innerHTML += `
         <div>
-        <h3>${task.name}</h1>
-        <p> ${task.description}</p>
+        <h4>${task.name}</h4>
         <p> ${task.when}</p>
         <button id="completedButton--${task.id}">Completed Task</button>
+        <button id="editButton--${task.id}">Edit Task</button>
         </div>`
-      }});
-      taskListeners.completedTask()
-      taskListeners.addTask()
+        }
+      });
     })
 }
 export default taskToDOM
