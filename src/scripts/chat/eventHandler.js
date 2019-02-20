@@ -6,7 +6,7 @@ import scrollToBottom from "./scroll.js";
 import clearChildren from "./clear.js";
 import onLoad from "./onLoad.js";
 import createFriendObject from "../friends/createFriendObject.js"
-import friendsEntryManager from "../friends/entryManager"
+import friendsEntryManager from "../friends/friendsEntryManager"
 import findFriendIds from "../friends/findFriendIds.js"
 import isFriend from "../friends/isFriend.js";
 
@@ -20,6 +20,7 @@ const eventHandler = {
       const newObject = createMessageObject(userId, messageText, time)
       entryManager.postMessage(newObject)
         .then(() => {
+          const messageOutputContainer = document.querySelector("#message_output_container")
           clearChildren(messageOutputContainer)
           onLoad.outputAllMessages()
         })
@@ -84,6 +85,7 @@ const eventHandler = {
   },
   editListener: () => {
     document.querySelector("#message_output_container").addEventListener("click", (event) => {
+      console.log(event)
       const id = event.target.id.split("--")[1]
       const clickedDiv = document.getElementById(id)
       if (event.target.id.startsWith("edit_button")) {
@@ -92,9 +94,12 @@ const eventHandler = {
             createHTML.createInput(clickedDiv, message.content, id, message.content.length)
             event.target.textContent = "Update message"
           } else if (event.target.textContent === "Update message") {
+            console.log(message)
             message.content = document.getElementById(`input--${id}`).value
             const editedObj = createMessageObject(message.userId, message.content, message.messageDate)
+            console.log(editedObj)
             entryManager.editMessage(editedObj, id).then(() => {
+              const messageOutputContainer = document.querySelector("#message_output_container")
               clearChildren(messageOutputContainer)
               onLoad.outputAllMessages()
             })

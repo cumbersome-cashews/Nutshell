@@ -1,4 +1,4 @@
-import friendsEntryManager from "./entryManager"
+import friendsEntryManager from "./friendsEntryManager"
 const findFriendIds = () => {
   return friendsEntryManager.getFriends()
     .then((friends) => {

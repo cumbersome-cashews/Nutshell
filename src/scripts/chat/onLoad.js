@@ -4,6 +4,9 @@ import addToDOM from "./addToDOM"
 import scrollToBottom from "./scroll";
 import isFriend from "../friends/isFriend";
 import addFriendClass from "../friends/addFriendClass";
+import findFriendIds from "../friends/findFriendIds";
+import friendsEntryManager from "../friends/friendsEntryManager"
+
 const onLoad = {
   outputAllMessages: () => {
     entryManager.getMessages()
@@ -16,6 +19,20 @@ const onLoad = {
         })
         scrollToBottom()
       })
+  },
+
+
+  loadUserFriendships: () => {
+    findFriendIds().then((array) => {
+      console.log(array)
+      friendsEntryManager.getUsers().then((users) => {
+        console.log(users)
+      })
+    })
+
+
+
+
   },
   loadInitialHTML: () => {
     const friendContainer = document.createElement("section")
@@ -39,6 +56,9 @@ const onLoad = {
     addFriendButton.textContent = "Add a friend"
     document.querySelector("#message_article").appendChild(inputContainer)
     document.querySelector("#add_friend_container").appendChild(addFriendButton)
+    const friendListContainer = document.createElement("section")
+    friendListContainer.setAttribute("id", "friendListContainer")
+    document.querySelector("#message_article").appendChild(friendListContainer)
   }
 
 }

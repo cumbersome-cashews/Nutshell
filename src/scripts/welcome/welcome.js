@@ -109,6 +109,7 @@ const welcome = {
         eventHandler.messageListener()
         eventHandler.nameFriendListener()
         eventHandler.addFriendListener()
+        onLoad.loadUserFriendships()
 
 
 
