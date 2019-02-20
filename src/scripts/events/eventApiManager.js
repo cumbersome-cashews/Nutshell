@@ -1,6 +1,6 @@
 const eventApi = {
     getEvents: (userId) => {
-        return fetch(`http://localhost:8088/events?userId=${userId}&_expand=user`)
+        return fetch(`http://localhost:8088/events?userId=${userId}&_sort=date&_order=asc`)
             .then(res => res.json())
     },
     getOneEvent: (eventId) => {
