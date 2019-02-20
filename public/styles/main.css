@@ -1,6 +1,16 @@
+.eventCard:first-of-type {
+    font-weight: bolder;
+    background-color: lightgoldenrodyellow;
+    font-size: 2em;
+}
+
+.eventCard:first-of-type button {
+  font-size: .5em;
+}
+
 #message_output_container {
-  height: 200px;
-  width: 300px;
+height: 200px;
+width: 300px;
 resize: both;
 overflow: auto
 }

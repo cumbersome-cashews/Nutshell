@@ -1,3 +1,22 @@
+import eventApi from "./eventApiManager";
+import eventsAsHTML from "./eventsAsHTML";
+import printEvents from "./eventPrint";
+import eventsForm from "./eventsForm";
+
+//on login, GET user events
+//create HTML
+//print to DOM
+
+const showEvents = (activeUserId) => {
+    document.querySelector("#eventsForm").innerHTML = eventsForm.formButton
+    eventApi.getEvents(activeUserId)
+        .then(eventData => {
+            const html = eventsAsHTML(eventData)
+            printEvents(html, "#eventsList")
+        })
+}
+
+
 // As a user, I should be able to enter in an event that will happen at a future date, and when that event is next on the agenda, it should be more prominent in the application
 // # Acceptance Criteria
 // **Given** a user wants to keep track on a future event
@@ -22,3 +41,5 @@
 // **When** the user performs a gesture to edit an event
 // **Then** the user should be presented with a form that has the event details pre-filled into the fields
 // **And** there should be an affordance to save the new details
+
+export default showEvents
