@@ -1,8 +1,9 @@
 const createFriendHTML = userObj => {
-  let name = document.createElement("span")
-  const nameT = document.createTextNode(`${user.first_name} ${user.last_name}`)
+  console.log("hi")
+  let name = document.createElement("p")
+  const nameT = document.createTextNode(`${userObj.first_name} ${userObj.last_name}`)
   name.appendChild(nameT)
-  name.setAttribute("class", `friend--${user.id}`)
+  name.setAttribute("class", `friend--${userObj.id}`)
   document.querySelector("#friendListContainer").appendChild(name)
 
 }

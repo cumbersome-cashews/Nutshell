@@ -7,12 +7,6 @@ const createFriendObject = {
     }
   },
 
-
-
-
-
-
-
 }
 
 export default createFriendObject

@@ -13,3 +13,9 @@ margin: 0px 10px;
 .friend{
 background-color: cornsilk;
 }
+
+#friendListContainer {
+border: solid black 1px;
+
+
+}
