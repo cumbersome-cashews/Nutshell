@@ -2,10 +2,13 @@ import printToDOM from "./printToDOM";
 import welcomeForms from "./welcomeForms";
 import welcomeApiManager from "./welcomeApiManager";
 import newsHTMLFactory from "../newsFeed/newsHTMLFactory"
-import showEvents from "../events/events";
+import onLoad from "../chat/onLoad"
+import eventHandler from "../chat/eventHandler"
+import findFriendIds from "../friends/findFriendIds"
 import taskForm from "../Tasks/taskForm"
 import taskToDOM from "../Tasks/taskToDOM";
 import navbarBuilder from "../navbar/navbarHTML"
+import showEvents from "../events/events";
 
 const welcome = {
     welcome: (form) => {
