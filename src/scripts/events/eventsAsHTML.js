@@ -14,4 +14,6 @@ const eventsAsHTML = (eventsArray) => {
     return html
 }
 
+
+
 export default eventsAsHTML
