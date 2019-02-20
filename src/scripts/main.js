@@ -6,6 +6,7 @@ import welcomeEventHandlers from "./welcome/welcomeEventHandler"
 import navbarBuilder from "./navbar/navbarHTML";
 import newsEventListener from "./newsFeed/newsEventListenerHandler"
 import taskListeners from "./Tasks/taskListeners"
+import eventsEventListeners from "./events/eventsEventHandler"
 
 navbarBuilder("")
 welcome.welcome(welcomeForms.loginForm)

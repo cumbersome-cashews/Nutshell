@@ -3,13 +3,10 @@ import welcomeForms from "./welcomeForms";
 import welcomeApiManager from "./welcomeApiManager";
 //import News Section modules
 import newsHTMLFactory from "../newsFeed/newsHTMLFactory"
-<<<<<<< HEAD
 import showEvents from "../events/events";
-=======
 import taskForm from "../Tasks/taskForm"
 import taskToDOM from "../Tasks/taskToDOM";
 import navbarBuilder from "../navbar/navbarHTML"
->>>>>>> master
 
 const welcome = {
     welcome: (form) => {

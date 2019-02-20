@@ -27,6 +27,8 @@ const eventsEventListeners = {
             if (event.target.id.startsWith("editEvent")) {
                 //show form
                 document.querySelector("#eventsForm").innerHTML = eventsForm.inputForm
+                //focus the screen on the form
+                document.querySelector("#eventsForm").scrollIntoView(true)
                 //get id
                 const idToEdit = event.target.id.split("--")[1]
                 //save the id in hidden input for later
@@ -38,7 +40,6 @@ const eventsEventListeners = {
                         document.querySelector("#eventTitleInput").value = event.name
                         document.querySelector("#eventDateInput").value = event.date
                         document.querySelector("#eventLocationInput").value = event.location
-
                         //change the save button to Update
                         document.querySelector("#postEventBtn").textContent = "Update"
                     })
