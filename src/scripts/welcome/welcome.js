@@ -1,9 +1,14 @@
+
 // import welcomeEventHandlers from "./welcomeEventHandler";
 import printToDOM from "./printToDOM";
 import welcomeForms from "./welcomeForms";
 import welcomeApiManager from "./welcomeApiManager";
 //import News Section modules
 import newsHTMLFactory from "../newsFeed/newsHTMLFactory"
+import newsEventListener from "../newsFeed/newsEventListenerHandler"
+import onLoad from "../chat/onLoad"
+import eventHandler from "../chat/eventHandler"
+import findFriendIds from "../friends/findFriendIds"
 import taskForm from "../Tasks/taskForm"
 import taskToDOM from "../Tasks/taskToDOM";
 import navbarBuilder from "../navbar/navbarHTML"
@@ -103,7 +108,17 @@ const welcome = {
                 newsHTMLFactory(activeUserId)
                 document.getElementById("taskList-input").innerHTML = taskForm
                 taskToDOM(activeUserId)
+                onLoad.loadInitialHTML()
+                findFriendIds()
+                onLoad.outputAllMessages()
+                eventHandler.editListener()
+                eventHandler.messageListener()
+                eventHandler.nameFriendListener()
+                eventHandler.addFriendListener()
+                onLoad.loadUserFriendships()
             })
+
+
     }
 }
 
