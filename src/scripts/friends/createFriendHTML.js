@@ -5,6 +5,9 @@ const createFriendHTML = userObj => {
   name.appendChild(nameT)
   name.setAttribute("class", `friend--${userObj.id}`)
   document.querySelector("#friendListContainer").appendChild(name)
+  const removeButton = document.createElement("button")
+  name.appendChild(removeButton)
+  removeButton.textContent = "Remove friend"
 
 }
 export default createFriendHTML
