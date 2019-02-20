@@ -2,6 +2,7 @@ import isFriend from "../friends/isFriend";
 
 const createHTML = {
   createObjectHTML: (message) => {
+    // console.log(message)
     const messageDiv = document.createElement("div")
     messageDiv.setAttribute("id", `${message.id}`)
     messageDiv.setAttribute("class", `${message.user.id}`)
@@ -36,7 +37,7 @@ const createHTML = {
     const newInput = document.createElement("input")
     newInput.setAttribute("id", `input--${idNumber}`)
     newInput.value = value
-    const width = length * 8.5
+    const width = Math.max((length * 11), 100)
     newInput.style.width = `${width}px`
     parent.appendChild(newInput)
   },

@@ -21,19 +21,6 @@ const onLoad = {
       })
   },
 
-
-  loadUserFriendships: () => {
-    findFriendIds().then((array) => {
-      console.log(array)
-      friendsEntryManager.getUsers().then((users) => {
-        console.log(users)
-      })
-    })
-
-
-
-
-  },
   loadInitialHTML: () => {
     const friendContainer = document.createElement("section")
     const outputContainer = document.createElement("section")
@@ -59,9 +46,26 @@ const onLoad = {
     const friendListContainer = document.createElement("section")
     friendListContainer.setAttribute("id", "friendListContainer")
     document.querySelector("#message_article").appendChild(friendListContainer)
-  }
+  },
 
+  loadUserFriendships: () => {
+    findFriendIds().then((array) => {
+      console.log(array)
+      friendsEntryManager.getUsers().then((users) => {
+
+        const userIdArray = users.map((user) => user.id)
+        const userId = user.id
+        const friendList = users.filter(userId => array.includes(userId))
+        console.log(friendList)
+
+
+      })
+
+    })
+  }
 }
+
+
 export default onLoad
 
 

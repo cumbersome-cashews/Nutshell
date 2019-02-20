@@ -4,12 +4,12 @@ const findFriendIds = () => {
     .then((friends) => {
       const friendArray = []
       const activeUserInt = parseInt(sessionStorage.activeUser)
-      const filtered = friends.filter(element => element.userId === activeUserInt || element.friendId === activeUserInt)
+      const filtered = friends.filter(element => element.userId === parseInt(sessionStorage.activeUser) || element.friendId === parseInt(sessionStorage.activeUser))
       filtered.forEach(element => {
         const userAndFriendIds = []
         userAndFriendIds.push(element.userId)
         userAndFriendIds.push(element.friendId)
-        const friendIds = userAndFriendIds.filter(id => id !== activeUserInt)
+        const friendIds = userAndFriendIds.filter(id => id !== parseInt(sessionStorage.activeUser))
         friendArray.push(...friendIds)
       })
       const uniqueFriendArray = [...new Set(friendArray)]
