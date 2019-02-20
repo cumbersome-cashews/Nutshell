@@ -1,20 +1,32 @@
 import APIfunctions from "./api"
+import taskListeners from "./taskListeners"
 
 let taskToDOM = (activeUser) => {
- document.getElementById("taskList-items").innerHTML = ""
- APIfunctions.getTasks(activeUser)
- .then(parsedTasks => {
-   parsedTasks.forEach(task => {
+  const taskItems = document.getElementById("taskList-items")
+  taskItems.innerHTML = ""
+  APIfunctions.getTasks(activeUser)
+    .then(parsedTasks => {
+      console.log(parsedTasks)
+      parsedTasks.forEach(task => {
         if (task.completed === false) {
-          document.getElementById("taskList-items").innerHTML += `
+          console.log(task)
+          taskItems.innerHTML += `
         <div>
         <h3>${task.name}</h1>
-        <p> ${task.description}</p>
         <p> ${task.when}</p>
         <button id="completedButton--${task.id}">Completed Task</button>
         <button id="editButton--${task.id}">Edit Task</button>
         </div>`
-      }});
+        }
+      });
+      parsedTasks.forEach(task => {
+        if (task.completed === false) {
+          const editBTN = document.getElementById(`editButton--${task.id}`)
+          editBTN.addEventListener("click", () => {
+            taskListeners.showEditTaskForm(task)
+          })
+        }
+      })
     })
 }
 export default taskToDOM

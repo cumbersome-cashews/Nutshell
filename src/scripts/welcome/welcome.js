@@ -7,6 +7,7 @@ import newsHTMLFactory from "../newsFeed/newsHTMLFactory"
 import taskForm from "../Tasks/taskForm"
 import taskToDOM from "../Tasks/taskToDOM";
 import navbarBuilder from "../navbar/navbarHTML"
+import taskListeners from "../Tasks/taskListeners"
 
 const welcome = {
     welcome: (form) => {
@@ -81,6 +82,7 @@ const welcome = {
                 } else if (userToCheck.password === loginPassword) {
                     sessionStorage.setItem("activeUser", userToCheck.id)
                     welcome.showDashboard(userToCheck.id)
+                    taskListeners.addTask()
                 } else {
                     alert("Username or password incorrect")
                     welcome.welcome(welcomeForms.loginForm)
@@ -102,7 +104,8 @@ const welcome = {
                 // navbarBuilder(activeUserId)
                 newsHTMLFactory(activeUserId)
                 document.getElementById("taskList-input").innerHTML = taskForm
-                taskToDOM()
+                taskToDOM(activeUserId)
+                taskListeners.addTask()
             })
     }
 }
