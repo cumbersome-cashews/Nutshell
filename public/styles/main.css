@@ -1,7 +1,11 @@
 .eventCard:first-of-type {
-    font-weight: 900;
-    background-color: palegoldenrod;
-    font-size: 1.5em;
+    font-weight: bolder;
+    background-color: lightgoldenrodyellow;
+    font-size: 2em;
+}
+
+.eventCard:first-of-type button {
+  font-size: .5em;
 }
 
 #message_output_container {
