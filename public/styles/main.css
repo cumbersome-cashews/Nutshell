@@ -1,3 +1,7 @@
+body {
+  background-color: rgb(192, 96, 89)
+}
+
 .eventCard:first-of-type {
     font-weight: bolder;
     background-color: lightgoldenrodyellow;
@@ -8,15 +12,29 @@
   font-size: .5em;
 }
 
-#message_article {
+/* #message_article {
   margin: 40px 40px 40px 40px;
-}
+    background-color: white;
+    border-radius: 5px;
+    border: 5px solid black;
+    padding: 10px;
+} */
 
 #message_output_container {
-height: 200px;
-width: 600px;
-resize: both;
-overflow: auto
+  height: 200px;
+  width: 600px;
+  resize: both;
+  overflow: auto;
+  border: 5px solid black;
+  padding: 20px;
+  background-color: white;
+  margin: auto;
+}
+
+#add_friend_container,
+#message_input_container,
+#friendListContainer   {
+  margin: 0px 50px 0px 50px
 }
 
 .time {
@@ -33,7 +51,29 @@ border: solid black 1px;
 
 }
 
-#taskList-input,
-#taskList-items {
-    margin: 40px 40px 40px 40px
+#eventsForm {
+  margin: auto;
+  text-align: center;
+}
+
+#createEventBtn {
+  box-shadow: 1px 1px 1px grey;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+#createEventBtn:hover {
+  border-radius: 5px;
+  background-color: #0774CD;
+  border: none;
+  color: white;
+}
+
+.taskCardContainer,
+.taskInputDiv {
+  margin: 40px 40px 40px 40px;
+  background-color: white;
+  border: 5px black solid;
+  border-radius: 5px;
+  padding: 10px;
 }

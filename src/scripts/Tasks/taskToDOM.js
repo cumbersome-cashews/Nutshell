@@ -10,7 +10,7 @@ let taskToDOM = (activeUser) => {
         if (task.completed === false) {
           console.log(task)
           taskItems.innerHTML += `
-        <div>
+        <div class="taskCardContainer">
         <h4>${task.name}</h4>
         <p> ${task.when}</p>
         <button id="completedButton--${task.id}">Completed Task</button>
