@@ -8,9 +8,13 @@
   font-size: .5em;
 }
 
+#message_article {
+  margin: 40px 40px 40px 40px;
+}
+
 #message_output_container {
 height: 200px;
-width: 300px;
+width: 600px;
 resize: both;
 overflow: auto
 }
@@ -27,5 +31,9 @@ background-color: cornsilk;
 #friendListContainer {
 border: solid black 1px;
 
+}
 
+#taskList-input,
+#taskList-items {
+    margin: 40px 40px 40px 40px
 }
